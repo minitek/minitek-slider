@@ -1,0 +1,212 @@
+/* General */
+
+.com_minitekslider.view- a[target="_blank"]::before,
+.com_minitekslider.view-dashboard a[target="_blank"]::before,
+.com_minitekslider.view-widget a.btn[target="_blank"]::before {
+  content: none;
+}
+
+/* Dashboard */
+
+body.com_minitekslider.view- #subhead,
+body.com_minitekslider.view-dashboard #subhead {
+	display: none;
+}
+
+/* Dashboard alert */
+
+.minitek-dashboard .alert {
+	border-radius: 0;
+}
+
+.minitek-dashboard .alert .badge {
+	font-size: 15px;
+}
+
+/* Dashboard media box */
+
+.minitek-dashboard .media {
+	border: 1px solid #b4e1ea;
+	margin: 5px 0 10px;
+	padding: 15px;
+	background: #d9edf7;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.055);
+}
+
+.minitek-dashboard .media-object {
+	opacity: 0.8;
+}
+
+.minitek-dashboard .media-body {
+	padding: 20px;
+	color: #4780aa;
+}
+
+.minitek-dashboard .media-heading {
+	margin: 0 0 15px;
+}
+
+.minitek-dashboard .media-heading .label {
+	vertical-align: middle;
+}
+
+/* Dashboard thumbnails */
+
+.dashboard-thumbnails {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 -5px;
+}
+
+.dashboard-thumbnails .thumbnail {
+	flex-grow: 1;
+	flex-basis: 23%;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+	text-align: center;
+	background: #fff;
+	margin: 0 5px 10px;
+  min-width: inherit;
+}
+
+.dashboard-thumbnails .thumbnail a {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px 15px 10px;
+}
+
+.dashboard-thumbnails .thumbnail:last-child a {
+	padding: 20px 15px 0;
+}
+
+.dashboard-thumbnails .thumbnail:last-child .small {
+  font-size: 11px;
+}
+
+.dashboard-thumbnails .thumbnail .icon {
+	font-size: 38px;
+	width: 38px;
+	height: 38px;
+	display: inline-block;
+	margin: 0;
+	line-height: 1;
+	color: #71a0c0;
+}
+
+.dashboard-thumbnails .thumbnail-title {
+	margin: 20px 0 15px;
+	font-size: 15px;
+	font-weight: 400;
+	display: inline-block;
+	width: 100%;
+}
+
+/* Separators */
+
+label[id^="jform_source_params_separator_"],
+label[id^="jform_masonry_params_separator_"] {
+  display: none !important;
+}
+
+.mmSeparator {
+  box-sizing: border-box;
+  background: none repeat scroll 0 0 #e8f3f9;
+  color: #555;
+  margin: 10px 0 0;
+  padding: 5px;
+  float: left;
+  width: 100%;
+  font-size: 12px;
+}
+
+.mmSeparator h3,
+.mmSeparator h4 {
+	margin: 0;
+	padding: 5px;
+	font-weight: 400;
+}
+
+.mmSeparator h4 {
+	font-size: 15px;
+}
+
+/* Widget */
+
+.com_minitekslider.view-widget .alert {
+  margin: 0;
+}
+
+/* Slider Type Radio */
+
+#jform_slider_params_slider_theme {
+  margin: 0 -10px;
+}
+
+.slider-radio {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 400px;
+	min-width: 300px;
+	text-align: left;
+	padding: 10px;
+}
+
+.slider-radio label {
+	box-sizing: border-box;
+	width: 100%;
+	background: #e8f4f9;
+	border: 5px solid rgba(0,0,0,0);
+}
+
+.slider-radio.active label {
+	border: 5px solid #faa732;
+}
+
+.slider-radio label p {
+	margin: 0;
+	padding: 10px 10px 15px;
+	color: #0088cc;
+	text-align: center;
+}
+
+.slider-radio.active label p {
+	background: #faa732;
+	color: #fff;
+}
+
+.slider-radio label img {
+	width: 100%;
+}
+
+.control-group .radio .slider-radio input[type="radio"] {
+	float: none;
+	display: none;
+}
+
+.slider-radio-demo-cont {
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	background: #f5fafc;
+}
+
+.slider-radio-demo-cont i {
+	font-size: 18px;
+}
+
+.slider-item-caption span.title {
+	display: block;
+	width: 40px;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.slider-radio-actions {
+	text-align: center;
+	margin: 10px 0 30px;
+}

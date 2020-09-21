@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form addfieldprefix="Joomla\Component\MinitekSlider\Administrator\Field">
+
+	<fields name="slider_params">
+
+		<fieldset name="slider_layout">
+
+			<field
+				name="slider_layout"
+				type="componentlayout"
+				extension="com_minitekslider"
+				view="slider"
+				useglobal="false"
+				label="COM_MINITEKSLIDER_FIELD_TEMPLATE_OVERRIDE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_TEMPLATE_OVERRIDE_DESC"
+			/>
+
+			<field
+				name="slider_suffix"
+				type="text"
+				class="inputbox"
+				size="40"
+				label="COM_MINITEKSLIDER_FIELD_CLASS_SUFFIX_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CLASS_SUFFIX_DESC"
+			/>
+
+			<field
+				name="slider_page_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_SHOW_PAGE_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_SHOW_PAGE_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_theme"
+				type="sliderlist"
+				label="COM_MINITEKSLIDER_FIELD_SLIDER_THEMES_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_SLIDER_THEMES_DESC"
+				size="1"
+				default="image_slider"
+			/>
+
+			<field
+				name="slider_cont_bg"
+				type="color"
+				default=""
+				label="COM_MINITEKSLIDER_FIELD_CONTAINER_BG_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CONTAINER_BG_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_cont_image"
+				type="media"
+				directory=""
+				label="COM_MINITEKSLIDER_FIELD_CONTAINER_IMAGE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CONTAINER_IMAGE_DESC"
+			/>
+
+			<field
+				name="slider_fullscreen"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_FULLSCREEN_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FULLSCREEN_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_fullscreen_bg"
+				type="color"
+				default=""
+				label="COM_MINITEKSLIDER_FIELD_FULLSCREEN_BG_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FULLSCREEN_BG_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_fullscreen_image"
+				type="media"
+				directory=""
+				label="COM_MINITEKSLIDER_FIELD_FULLSCREEN_IMAGE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FULLSCREEN_IMAGE_DESC"
+			/>
+
+			<field
+				name="slider_cont_padding"
+				type="number"
+				default="20"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_CONTAINER_PADDING_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CONTAINER_PADDING_DESC"
+			/>
+
+			<field
+				name="slider_gutter"
+				type="number"
+				class="inputbox"
+				size="40"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_GUTTER_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_GUTTER_DESC"
+				default="5"
+			/>
+
+			<field
+				name="slider_border_radius"
+				type="number"
+				default="0"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_RADIUS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_RADIUS_DESC"
+			/>
+
+			<field
+				name="slider_border"
+				type="number"
+				default="0"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_DESC"
+			/>
+
+			<field
+				name="slider_border_color"
+				type="color"
+				default="#eeeeee"
+				label="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_ITEMS_BORDER_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_cell_align"
+				type="list"
+				label="COM_MINITEKSLIDER_FIELD_CELL_ALIGN_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CELL_ALIGN_DESC"
+				labelclass="control-label"
+				default="center"
+			>
+				<option value="left">COM_MINITEKSLIDER_FIELD_OPTION_LEFT</option>
+				<option value="center">COM_MINITEKSLIDER_FIELD_OPTION_CENTER</option>
+				<option value="right">COM_MINITEKSLIDER_FIELD_OPTION_RIGHT</option>
+			</field>
+
+			<field
+				name="slider_rtl"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RTL_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RTL_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="slider_image_settings">
+
+			<field
+				name="slider_images"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_SHOW_IMAGES_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_SHOW_IMAGES_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_image_link"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_IMAGE_LINK_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_IMAGE_LINK_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_crop_images"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_CROP_IMAGES_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CROP_IMAGES_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_image_width"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_CROP_WIDTH_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CROP_WIDTH_DESC"
+			/>
+
+			<field
+				name="slider_image_height"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_CROP_HEIGHT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CROP_HEIGHT_DESC"
+			/>
+
+			<field
+				name="slider_lazyload"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_LAZY_LOAD_IMAGES_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_LAZY_LOAD_IMAGES_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_parallax"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_PARALLAX_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_PARALLAX_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_fallback_image"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_FALLBACK_IMAGE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FALLBACK_IMAGE_DESC"
+				default="0"
+			/>
+
+		</fieldset>
+
+		<fieldset name="slider_detailbox">
+
+			<field
+				name="slider_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_bg"
+				type="color"
+				default="#525a80"
+        label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_DESC"
+			/>
+
+			<field
+				name="slider_db_bg_opacity"
+				type="text"
+				default="0.75"
+        label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_OPACITY_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_OPACITY_DESC"
+			/>
+
+			<field
+				name="slider_db_color"
+				type="list"
+				default="light-text"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TEXT_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TEXT_COLOR_DESC"
+			>
+				<option value="dark-text">COM_MINITEKSLIDER_FIELD_OPTION_DARK</option>
+				<option value="light-text">COM_MINITEKSLIDER_FIELD_OPTION_LIGHT</option>
+			</field>
+
+			<field
+				name="slider_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_title_link"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LINK_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LINK_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_db_title_limit"
+				type="number"
+				default="15"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LIMIT_DESC"
+				class="inputbox"
+				size="5"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_db_introtext"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_introtext_limit"
+				type="number"
+				default="15"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_LIMIT_DESC"
+				class="inputbox"
+				size="5"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_db_strip_tags"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_STRIP_TAGS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_INTROTEXT_STRIP_TAGS_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_db_date"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_date_format"
+				type="text"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_FORMAT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_FORMAT_DESC"
+				class="inputbox"
+				size="5"
+				default="F d, Y"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_db_category"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_CATEGORY_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_CATEGORY_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_content_type"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TYPE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TYPE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_author"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_AUTHOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_AUTHOR_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_hits"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_HITS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_HITS_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_count"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_COUNT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_COUNT_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_db_readmore"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_READMORE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_READMORE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="slider_hoverbox">
+
+			<field
+				name="slider_hb"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_DESC"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_hb_bg"
+				type="color"
+				default="#525a80"
+        label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_BG_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_BG_DESC"
+			/>
+
+			<field
+				name="slider_hb_bg_opacity"
+				type="text"
+				default="0.75"
+        label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_BG_OPACITY_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_BG_OPACITY_DESC"
+			/>
+
+			<field
+				name="slider_hb_text_color"
+				type="list"
+				default="2"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TEXT_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TEXT_COLOR_DESC"
+			>
+				<option value="1">COM_MINITEKSLIDER_FIELD_OPTION_DARK</option>
+				<option value="2">COM_MINITEKSLIDER_FIELD_OPTION_LIGHT</option>
+			</field>
+
+			<field
+				name="slider_hb_effect"
+				type="list"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_DESC"
+				size="1"
+				default="1"
+			>
+				<option value="no">COM_MINITEKSLIDER_SIMPLE_NO_EFFECTS</option>
+				<option value="1">COM_MINITEKSLIDER_SIMPLE_FADE</option>
+				<option value="2">COM_MINITEKSLIDER_FLIP_Y</option>
+				<option value="3">COM_MINITEKSLIDER_FLIP_X</option>
+				<option value="5">COM_MINITEKSLIDER_SLIDE_IN_LEFT</option>
+				<option value="4">COM_MINITEKSLIDER_SLIDE_IN_RIGHT</option>
+				<option value="6">COM_MINITEKSLIDER_SLIDE_IN_TOP</option>
+				<option value="7">COM_MINITEKSLIDER_SLIDE_IN_BOTTOM</option>
+				<option value="8">COM_MINITEKSLIDER_ZOOM_IN</option>
+			</field>
+
+			<field
+				name="slider_hb_effect_speed"
+				type="text"
+				default="0.4"
+        label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_SPEED_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_SPEED_DESC"
+			/>
+
+			<field
+				name="slider_hb_effect_easing"
+				type="list"
+				default="smooth"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_EASING_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_EFFECT_EASING_DESC"
+			>
+				<option value="cubic-bezier(0.47, 0, 0.745, 0.715)">easeInSine</option>
+				<option value="cubic-bezier(0.39, 0.575, 0.565, 1)">easeOutSine</option>
+				<option value="cubic-bezier(0.445, 0.05, 0.55, 0.95)">easeInOutSine</option>
+				<option value="cubic-bezier(0.55, 0.085, 0.68, 0.53)">easeInQuad</option>
+				<option value="cubic-bezier(0.25, 0.46, 0.45, 0.94)">easeOutQuad</option>
+				<option value="cubic-bezier(0.455, 0.03, 0.515, 0.955)">easeInOutQuad</option>
+				<option value="cubic-bezier(0.55, 0.055, 0.675, 0.19)">easeInCubic</option>
+				<option value="cubic-bezier(0.215, 0.61, 0.355, 1)">easeOutCubic</option>
+				<option value="cubic-bezier(0.645, 0.045, 0.355, 1)">easeInOutCubic</option>
+				<option value="cubic-bezier(0.895, 0.03, 0.685, 0.22)">easeInQuart</option>
+				<option value="cubic-bezier(0.165, 0.84, 0.44, 1)">easeOutQuart</option>
+				<option value="cubic-bezier(0.77, 0, 0.175, 1)">easeInOutQuart</option>
+				<option value="cubic-bezier(0.755, 0.05, 0.855, 0.06)">easeInQuint</option>
+				<option value="cubic-bezier(0.23, 1, 0.32, 1)">easeOutQuint</option>
+				<option value="cubic-bezier(0.86, 0, 0.07, 1)">easeInOutQuint</option>
+				<option value="cubic-bezier(0.95, 0.05, 0.795, 0.035)">easeInExpo</option>
+				<option value="cubic-bezier(0.19, 1, 0.22, 1)">easeOutExpo</option>
+				<option value="cubic-bezier(1, 0, 0, 1)">easeInOutExpo</option>
+				<option value="cubic-bezier(0.6, 0.04, 0.98, 0.335)">easeInCirc</option>
+				<option value="cubic-bezier(0.075, 0.82, 0.165, 1)">easeOutCirc</option>
+				<option value="cubic-bezier(0.785, 0.135, 0.15, 0.86)">easeInOutCirc</option>
+				<option value="cubic-bezier(0.6, -0.28, 0.735, 0.045)">easeInBack</option>
+				<option value="cubic-bezier(0.175, 0.885, 0.32, 1.275)">easeOutBack</option>
+				<option value="cubic-bezier(0.68, -0.55, 0.265, 1.55)">easeInOutBack</option>
+			</field>
+
+			<field
+				name="slider_hb_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TITLE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_title_limit"
+				type="number"
+				default="15"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TITLE_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TITLE_LIMIT_DESC"
+				class="inputbox"
+				size="5"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_hb_introtext"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_introtext_limit"
+				type="number"
+				default="15"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_LIMIT_DESC"
+				class="inputbox"
+				size="5"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_hb_strip_tags"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_STRIP_TAGS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_INTROTEXT_STRIP_TAGS_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_hb_date"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_DATE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_DATE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_date_format"
+				type="text"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_DATE_FORMAT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_DATE_FORMAT_DESC"
+				class="inputbox"
+				size="5"
+				default="F d, Y"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_hb_category"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_CATEGORY_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_CATEGORY_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_type"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TYPE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_TYPE_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_author"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_AUTHOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_AUTHOR_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_hits"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_HITS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_HITS_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_link"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_LINK_BUTTON_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_LINK_BUTTON_DESC"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_hb_lightbox"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_HOVER_BOX_LIGHTBOX_BUTTON_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_HOVER_BOX_LIGHTBOX_BUTTON_DESC"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="slider_navigation">
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_NAVIGATION_MAIN_SLIDER_SEPARATOR" />
+
+			<field
+				name="slider_start_limit"
+				type="number"
+				label="COM_MINITEKSLIDER_FIELD_START_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_START_LIMIT_DESC"
+				class="inputbox"
+				default="8"
+				min="0"
+				step="1"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_load_more"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_LOAD_MORE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_LOAD_MORE_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_dynamic_limit"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_DYNAMIC_LIMIT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DYNAMIC_LIMIT_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_global_limit"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_TOTAL_ITEMS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_TOTAL_ITEMS_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_arrows"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_arrows_color"
+				type="color"
+				default="#525a80"
+        label="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_bullets"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_DESC"
+				default="0"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_bullets_style"
+				type="list"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_STYLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_STYLE_DESC"
+				default="circle"
+			>
+				<option value="circle">COM_MINITEKSLIDER_FIELD_OPTION_CIRCLES</option>
+				<option value="square">COM_MINITEKSLIDER_FIELD_OPTION_SQUARES</option>
+				<option value="line">COM_MINITEKSLIDER_FIELD_OPTION_LINES</option>
+			</field>
+
+			<field
+				name="slider_bullets_color"
+				type="color"
+				default="#525a80"
+        label="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_COLOR_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_NAVIGATION_BULLETS_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_progressbar"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_PROGRESS_BAR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_PROGRESS_BAR_DESC"
+				default="0"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_progressbar_color"
+				type="color"
+				default="#525a80"
+        label="COM_MINITEKSLIDER_FIELD_PROGRESS_BAR_COLOR_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_PROGRESS_BAR_COLOR_LABEL"
+			/>
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_NAVIGATION_NAVIGATOR_SEPARATOR" />
+
+			<field
+				name="slider_navigator"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_width"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_WIDTH_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_WIDTH_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_height"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_HEIGHT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_HEIGHT_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_spacing"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_SPACING_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_SPACING_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_images"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_IMAGES_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_IMAGES_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_border"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_BORDER_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_BORDER_DESC"
+			/>
+
+			<field
+				name="slider_navigator_selected_color"
+				type="profeature"
+				class="info"
+				default="0"
+        label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_SELECTED_COLOR_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_SELECTED_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_navigator_active_color"
+				type="profeature"
+				class="info"
+				default="0"
+        label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_ACTIVE_COLOR_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_ACTIVE_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_navigator_arrows"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_ARROWS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_ARROWS_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_db"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATOR_DETAIL_BOX_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATOR_DETAIL_BOX_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_navigator_db_color"
+				type="profeature"
+				class="info"
+				default="0"
+        label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_opacity"
+				type="profeature"
+				class="info"
+				default="0"
+        label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_OPACITY_LABEL"
+        description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_BG_OPACITY_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_text_color"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TEXT_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TEXT_COLOR_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_date"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_DATE_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_title"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_TITLE_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_category"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_CATEGORY_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_CATEGORY_DESC"
+			/>
+
+			<field
+				name="slider_navigator_db_author"
+				type="profeature"
+				class="info"
+				default="0"
+				label="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_AUTHOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DETAIL_BOX_AUTHOR_DESC"
+			/>
+
+		</fieldset>
+
+		<fieldset name="slider_effects">
+
+			<field
+				name="slider_fade"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_FADE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FADE_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_drag"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_DRAG_AND_SCROLL_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DRAG_AND_SCROLL_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_drag_threshold"
+				type="number"
+				label="COM_MINITEKSLIDER_FIELD_DRUG_THRESHOLD_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_DRUG_THRESHOLD_DESC"
+				class="inputbox"
+				default="3"
+				min="0"
+				step="1"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_selected_attraction"
+				type="text"
+				label="COM_MINITEKSLIDER_FIELD_SELECTED_ATTRACTION_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_SELECTED_ATTRACTION_DESC"
+				class="inputbox"
+				default="0.025"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_friction"
+				type="text"
+				label="COM_MINITEKSLIDER_FIELD_FRICTION_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FRICTION_DESC"
+				class="inputbox"
+				default="0.28"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_free_scroll"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_FREE_SCROLL_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FREE_SCROLL_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_free_scroll_friction"
+				type="text"
+				label="COM_MINITEKSLIDER_FIELD_FREE_SCROLL_FRICTION_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_FREE_SCROLL_FRICTION_DESC"
+				class="inputbox"
+				default="0.075"
+				labelclass="control-label"
+			/>
+
+			<field
+				name="slider_rewind"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_REWIND_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_REWIND_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_contain"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_CONTAIN_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_CONTAIN_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="slider_group_items"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_GROUP_ITEMS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_GROUP_ITEMS_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_autoplay"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_AUTOPLAY_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_AUTOPLAY_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_autoplay_speed"
+				type="profeature"
+				class="info"
+				label="COM_MINITEKSLIDER_FIELD_AUTOPLAY_SPEED_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_AUTOPLAY_SPEED_DESC"
+				default="0"
+			/>
+
+			<field
+				name="slider_adaptive_height"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_ADAPTIVE_HEIGHT_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_ADAPTIVE_HEIGHT_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="slider_responsive">
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_LG_SETTINGS_SEPARATOR" />
+
+			<field
+				name="slider_responsive_lg"
+				type="number"
+				default="1139"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_LG_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_LG_DESC"
+			/>
+
+			<field
+				name="slider_responsive_lg_num"
+				type="integer"
+				default="3"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_LG_NUM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_LG_NUM_DESC"
+				first="1"
+				last="10"
+				step="1"
+			/>
+
+			<field
+				name="slider_responsive_lg_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_responsive_lg_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_MD_SETTINGS_SEPARATOR" />
+
+			<field
+				name="slider_responsive_md"
+				type="number"
+				default="939"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_MD_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_MD_DESC"
+			/>
+
+			<field
+				name="slider_responsive_md_num"
+				type="integer"
+				default="3"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_MD_NUM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_MD_NUM_DESC"
+				first="1"
+				last="10"
+				step="1"
+			/>
+
+			<field
+				name="slider_responsive_md_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_responsive_md_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_SM_SETTINGS_SEPARATOR" />
+
+			<field
+				name="slider_responsive_sm"
+				type="number"
+				default="719"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_SM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_SM_DESC"
+			/>
+
+			<field
+				name="slider_responsive_sm_num"
+				type="integer"
+				default="2"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_SM_NUM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_SM_NUM_DESC"
+				first="1"
+				last="10"
+				step="1"
+			/>
+
+			<field
+				name="slider_responsive_sm_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_responsive_sm_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_XS_SETTINGS_SEPARATOR" />
+
+			<field
+				name="slider_responsive_xs"
+				type="number"
+				default="479"
+				min="0"
+				step="1"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XS_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XS_DESC"
+			/>
+
+			<field
+				name="slider_responsive_xs_num"
+				type="integer"
+				default="2"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XS_NUM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XS_NUM_DESC"
+				first="1"
+				last="10"
+				step="1"
+			/>
+
+			<field
+				name="slider_responsive_xs_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_responsive_xs_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field type="separator" text="COM_MINITEKSLIDER_FIELD_XXS_SETTINGS_SEPARATOR" />
+
+			<field
+				name="slider_responsive_xxs_num"
+				type="integer"
+				default="1"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XXS_NUM_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_XXS_NUM_DESC"
+				first="1"
+				last="10"
+				step="1"
+			/>
+
+			<field
+				name="slider_responsive_xxs_db"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_DESC"
+				default="1"
+			>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="slider_responsive_xxs_db_title"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_RESPONSIVE_DB_TITLE_DESC"
+				default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+		</fieldset>
+
+	</fields>
+
+</form>
