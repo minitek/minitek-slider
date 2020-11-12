@@ -1,10 +1,10 @@
 <?php
 /**
-* @title				Minitek Slider
-* @copyright   	Copyright (C) 2011-2020 Minitek, All rights reserved.
-* @license   		GNU General Public License version 3 or later.
-* @author url   https://www.minitek.gr/
-* @developers   Minitek.gr
+* @title		Minitek Slider
+* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @license		GNU General Public License version 3 or later.
+* @author url	https://www.minitek.gr/
+* @developers	Minitek.gr
 */
 
 defined('_JEXEC') or die;
@@ -24,13 +24,12 @@ $moduleIsInstalled = MinitekSliderHelper::checkModuleIsInstalled();
 		<div class="alert alert-danger text-center mt-0">
 			<div class="update-info">
 				<div>
-					<b><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_WARNING'); ?></b>
 					<span><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_MODULE_NOT_INSTALLED'); ?></span>
 				</div>
 				<div class="mt-2">
-					<a class="button-success btn btn-sm btn-success" href="<?php echo Route::_('index.php?option=com_installer'); ?>">
+					<a class="button-success btn btn-sm btn-success" href="https://www.minitek.gr/downloads/minitek-slider-module" target="_blank">
 						<span class="icon-download" aria-hidden="true"></span>
-						<?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_INSTALL_NOW'); ?>
+						<?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_DOWNLOAD'); ?>
 					</a>
 				</div>
 			</div>
