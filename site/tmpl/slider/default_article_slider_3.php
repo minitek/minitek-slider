@@ -1,10 +1,10 @@
 <?php
 /**
-* @title				Minitek Slider
-* @copyright   	Copyright (C) 2011-2019 Minitek, All rights reserved.
-* @license   		GNU General Public License version 3 or later.
-* @author url   http://www.minitek.gr/
-* @developers   Minitek.gr
+* @title		Minitek Slider
+* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @license		GNU General Public License version 3 or later.
+* @author url	https://www.minitek.gr/
+* @developers	Minitek.gr
 */
 
 // no direct access

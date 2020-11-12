@@ -85,7 +85,7 @@ class MinitekSliderHelper
 	 *
 	 * @since   4.0.0
 	 */
-	public static function checkModuleIsInstalled()
+	public static function getModule()
  	{
  		$db = Factory::getDBO();
  		$query = $db->getQuery(true);
@@ -98,9 +98,9 @@ class MinitekSliderHelper
  		// Setup the query
  		$db->setQuery($query);
 
- 		$moduleExists = $db->loadObject();
+ 		$module_exists = $db->loadObject();
 
- 		if ($moduleExists)
+ 		if ($module_exists)
  			return true;
 
  		return false;

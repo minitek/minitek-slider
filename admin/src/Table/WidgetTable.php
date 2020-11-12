@@ -1,10 +1,10 @@
 <?php
 /**
-* @title				Minitek Slider
-* @copyright   	Copyright (C) 2011-2019 Minitek, All rights reserved.
-* @license   		GNU General Public License version 3 or later.
-* @author url   https://www.minitek.gr/
-* @developers   Minitek.gr
+* @title		Minitek Slider
+* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @license		GNU General Public License version 3 or later.
+* @author url	https://www.minitek.gr/
+* @developers	Minitek.gr
 */
 
 namespace Joomla\Component\MinitekSlider\Administrator\Table;
@@ -39,6 +39,18 @@ class WidgetTable extends Table
 		parent::__construct('#__minitek_slider_widgets', 'id', $db);
 
 		$this->setColumnAlias('published', 'state');
+	}
+
+	protected function _getAssetName()
+	{
+		$k = $this->_tbl_key;
+
+		return 'com_minitekslider.widget.' . (int) $this->$k;
+	}
+
+	protected function _getAssetTitle()
+	{
+		return $this->name;
 	}
 
 	/**

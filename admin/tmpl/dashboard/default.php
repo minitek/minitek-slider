@@ -15,12 +15,12 @@ use Joomla\CMS\URI\URI;
 use Joomla\CMS\Session\Session;
 use Joomla\Component\MinitekSlider\Administrator\Helper\MinitekSliderHelper;
 
-$local_version = MinitekSliderHelper::localVersion();
-$moduleIsInstalled = MinitekSliderHelper::checkModuleIsInstalled();
+$localVersion = MinitekSliderHelper::localVersion();
+$moduleInstalled = MinitekSliderHelper::getModule();
 ?>
 
 <div class="minitek-dashboard mt-3">
-	<?php if (!$moduleIsInstalled) { ?>
+	<?php if (!$moduleInstalled) { ?>
 		<div class="alert alert-danger text-center mt-0">
 			<div class="update-info">
 				<div>
@@ -136,7 +136,7 @@ $moduleIsInstalled = MinitekSliderHelper::checkModuleIsInstalled();
 							<li class="list-group-item">
 								<div><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_VERSION'); ?></div>
 								<div>
-									<span class="badge badge-success"><?php echo $local_version; ?></span> <span class="badge badge-success">Free</span>
+									<span class="badge badge-success"><?php echo $localVersion; ?></span> <span class="badge badge-success">Free</span>
 									<a id="check-version" href="#" class="btn btn-info btn-sm float-right">
 										<i class="fas fa-sync"></i>&nbsp;&nbsp;<?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_CHECK_VERSION'); ?>
 									</a>

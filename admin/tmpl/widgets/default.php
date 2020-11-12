@@ -1,10 +1,10 @@
 <?php
 /**
-* @title				Minitek Slider
-* @copyright   	Copyright (C) 2011-2019 Minitek, All rights reserved.
-* @license   		GNU General Public License version 3 or later.
-* @author url   https://www.minitek.gr/
-* @developers   Minitek.gr
+* @title		Minitek Slider
+* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @license		GNU General Public License version 3 or later.
+* @author url	https://www.minitek.gr/
+* @developers	Minitek.gr
 */
 
 defined('_JEXEC') or die('Restricted access');
@@ -18,9 +18,9 @@ use Joomla\CMS\Button\PublishedButton;
 
 HTMLHelper::_('behavior.multiselect');
 
-$user       = Factory::getUser();
-$listOrder	= $this->escape($this->state->get('list.ordering'));
-$listDirn		= $this->escape($this->state->get('list.direction'));
+$user = Factory::getUser();
+$listOrder = $this->escape($this->state->get('list.ordering'));
+$listDirn = $this->escape($this->state->get('list.direction'));
 ?>
 
 <form action="<?php echo Route::_('index.php?option=com_minitekslider&view=widgets'); ?>" method="post" name="adminForm" id="adminForm">

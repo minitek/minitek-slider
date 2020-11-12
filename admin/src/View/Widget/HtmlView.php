@@ -81,6 +81,7 @@ class HtmlView extends BaseHtmlView
 
 		// Get all sources from content plugins
 		$this->sources = (array)$this->app->triggerEvent('onWidgetPrepareSource', array());
+		
 		foreach ($this->sources as $source)
 		{
 			if ($this->source_id == $source['type'])
@@ -90,7 +91,7 @@ class HtmlView extends BaseHtmlView
 			}
 		}
 
-		$this->moduleIsInstalled = MinitekSliderHelper::checkModuleIsInstalled();
+		$this->moduleInstalled = MinitekSliderHelper::getModule();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
