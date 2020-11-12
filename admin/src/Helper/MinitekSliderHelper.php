@@ -30,24 +30,20 @@ class MinitekSliderHelper
 		$params = \JComponentHelper::getParams('com_minitekslider');
 		$version = 0;
 
-		if (self::isDomainAvailable('http://update.minitek.gr'))
+		$xml_file = @file_get_contents('https://update.minitek.gr/joomla-extensions/minitek_slider.xml');
+		
+		if ($xml_file)
 		{
-			if (self::isXMLAvailable('http://update.minitek.gr/joomla-extensions/minitek_slider.xml'))
-			{
-				$xml_file = @file_get_contents('http://update.minitek.gr/joomla-extensions/minitek_slider.xml');
+			$updates = new \SimpleXMLElement($xml_file);
 
-				if ($xml_file)
+			foreach ($updates as $key => $update)
+			{
+				$platform = (array)$update->targetplatform->attributes()->version;
+
+				if ($platform[0] == '4.*')
 				{
-					$updates = new \SimpleXMLElement($xml_file);
-					foreach ($updates as $key => $update)
-					{
-						$platform = (array)$update->targetplatform->attributes()->version;
-						if ($platform[0] == '4.*')
-						{
-							$version = (string)$update->version;
-							break;
-						}
-					}
+					$version = (string)$update->version;
+					break;
 				}
 			}
 		}
@@ -71,67 +67,16 @@ class MinitekSliderHelper
 	}
 
 	/**
-	 * Check if a valid url is provided.
-	 *
-	 * @return  bool
+	 * Method to clear user state variables.
 	 *
 	 * @since   4.0.0
 	 */
-	public static function isDomainAvailable($domain)
- 	{
- 		// Check if a valid url is provided
- 		if (!filter_var($domain, FILTER_VALIDATE_URL))
- 		{
- 			return false;
- 		}
+	public static function clearWidgetStateVariables()
+	{
+		$app = Factory::getApplication();
 
- 		// Initialize curl
- 		$curlInit = curl_init($domain);
- 		curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,10);
- 		curl_setopt($curlInit,CURLOPT_HEADER,true);
- 		curl_setopt($curlInit,CURLOPT_NOBODY,true);
- 		curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
-
- 		// Get answer
- 		$response = curl_exec($curlInit);
- 		curl_close($curlInit);
-
- 		if ($response)
- 			return true;
-
- 		return false;
- 	}
-
-	/**
-	 * Check if a valid xml is provided.
-	 *
-	 * @return  bool
-	 *
-	 * @since   4.0.0
-	 */
-	public static function isXMLAvailable($file)
- 	{
- 		$ch = curl_init($file);
-
- 		curl_setopt($ch, CURLOPT_NOBODY, true);
- 		curl_exec($ch);
- 		$response = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
- 		curl_close($ch);
-
- 		if ($response >= 400)
- 		{
- 			return false;
- 		}
- 		else if ($response = 200)
- 		{
- 			return true;
- 		}
- 		else
- 		{
- 			return false;
- 		}
- 	}
+		$app->setUserState('com_minitekslider.source_id', '');
+	}
 
 	/**
 	 * Check if Minitek Slider Module is installed.
@@ -160,16 +105,4 @@ class MinitekSliderHelper
 
  		return false;
  	}
-
-	/**
-	 * Method to clear user state variables.
-	 *
-	 * @since   4.0.0
-	 */
-	public static function clearWidgetStateVariables()
-	{
-		$app = Factory::getApplication();
-
-		$app->setUserState('com_minitekslider.source_id', '');
-	}
 }
