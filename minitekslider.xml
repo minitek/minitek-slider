@@ -6,7 +6,7 @@
 	<copyright>(C) 2011 - 2020 Minitek.gr. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later.</license>
 	<authorUrl>https://www.minitek.gr/</authorUrl>
-	<version>4.0.5</version>
+	<version>4.0.6</version>
 	<namespace path="src">Joomla\Component\MinitekSlider</namespace>
 	<description>
 	<![CDATA[
@@ -38,8 +38,8 @@
 	</files>
 
 	<languages folder="site">
-    <language tag="en-GB">language/en-GB/com_minitekslider.ini</language>
-  </languages>
+		<language tag="en-GB">language/en-GB/com_minitekslider.ini</language>
+	</languages>
 
 	<administration>
 		<menu>COM_MINITEKSLIDER_ADMIN_MENU</menu>
@@ -74,8 +74,8 @@
 
 	</administration>
 
-  <updateservers>
-  	<server type="extension" priority="1" name="Minitek Slider">http://update.minitek.gr/joomla-extensions/minitek_slider.xml</server>
-  </updateservers>
+	<updateservers>
+		<server type="extension" priority="1" name="Minitek Slider">https://update.minitek.gr/joomla-extensions/minitek_slider.xml</server>
+	</updateservers>
 
 </extension>
