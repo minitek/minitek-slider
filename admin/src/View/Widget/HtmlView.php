@@ -12,6 +12,8 @@ namespace Joomla\Component\MinitekSlider\Administrator\View\Widget;
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\URI\URI;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Helper\ContentHelper;
 use Joomla\Component\MinitekSlider\Administrator\Helper\MinitekSliderHelper;
@@ -82,7 +84,46 @@ class HtmlView extends BaseHtmlView
 		// Get all sources from content plugins
 		$this->sources = (array)$this->app->triggerEvent('onWidgetPrepareSource', array());
 		
-		foreach ($this->sources as $source)
+		// Core source types 
+		$this->coreTypes = [
+			'content',
+			'folder',
+			'rss',
+			'custom'
+		];
+
+		// Core plugins 
+		$this->corePlugins = [
+			[
+				'type' => 'content',
+				'title' => Text::_('PLG_CONTENT_MSOURCECONTENT_SOURCE_TITLE'),
+				'image' => URI::root(true).'/administrator/components/com_minitekslider/assets/images/source/content.png',
+				'downloadurl' => 'https://www.minitek.gr/downloads/minitek-source-content'
+			],
+			[
+				'type' => 'folder',
+				'title' => Text::_('PLG_CONTENT_MSOURCEFOLDER_SOURCE_TITLE'),
+				'image' => URI::root(true).'/administrator/components/com_minitekslider/assets/images/source/folder.png',
+				'downloadurl' => 'https://www.minitek.gr/joomla/extensions/minitek-wall#subscriptionPlans'
+			],
+			[
+				'type' => 'rss',
+				'title' => Text::_('PLG_CONTENT_MSOURCERSS_SOURCE_TITLE'),
+				'image' => URI::root(true).'/administrator/components/com_minitekslider/assets/images/source/rss.png',
+				'downloadurl' => 'https://www.minitek.gr/joomla/extensions/minitek-wall#subscriptionPlans'
+			],
+			[
+				'type' => 'custom',
+				'title' => Text::_('PLG_CONTENT_MSOURCECUSTOM_SOURCE_TITLE'),
+				'image' => URI::root(true).'/administrator/components/com_minitekslider/assets/images/source/custom.png',
+				'downloadurl' => 'https://www.minitek.gr/joomla/extensions/minitek-wall#subscriptionPlans'
+			]
+		];
+
+		// Get all sources from content plugins
+		$this->sources = (array)$this->app->triggerEvent('onWidgetPrepareSource', array());
+
+		foreach ($this->sources as $key => $source)
 		{
 			if ($this->source_id == $source['type'])
 			{

@@ -104,5 +104,30 @@ class MinitekSliderHelper
  			return true;
 
  		return false;
- 	}
+	}
+	 
+	/**
+	 * Check if source plugin is installed.
+	 *
+	 * @return  bool
+	 *
+	 * @since   4.0.6
+	 */
+	public static function getSourcePlugin($type)
+	{
+		$db = Factory::getDbo();
+		$query = $db->getQuery(true)
+			->select('*')
+			->from($db->quoteName('#__extensions'))
+			->where($db->quoteName('folder') . ' = ' . $db->quote('content'))
+			->where($db->quoteName('element') . ' = ' . $db->quote('msource'.$type));
+		$db->setQuery($query);
+
+		$result = $db->loadObject();
+
+		if (!$result)
+			return false;
+
+		return $result;
+	}
 }
