@@ -1,10 +1,10 @@
 <?php
 /**
-* @title				Minitek Slider
-* @copyright   	Copyright (C) 2011-2019 Minitek, All rights reserved.
-* @license   		GNU General Public License version 3 or later.
-* @author url   https://www.minitek.gr/
-* @developers   Minitek.gr
+* @title		Minitek Slider
+* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @license		GNU General Public License version 3 or later.
+* @author url	https://www.minitek.gr/
+* @developers	Minitek.gr
 */
 
 namespace Joomla\Component\MinitekSlider\Administrator\View\Widget;
@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
+use Joomla\CMS\Helper\ContentHelper;
 use Joomla\Component\MinitekSlider\Administrator\Helper\MinitekSliderHelper;
 use Joomla\CMS\MVC\View\GenericDataException;
 
@@ -70,10 +71,10 @@ class HtmlView extends BaseHtmlView
 	public function display($tpl = null)
 	{
 		$this->form = $this->get('Form');
-		$this->sliderform	= $this->get('SliderForm');
+		$this->sliderform = $this->get('SliderForm');
 		$this->item = $this->get('Item');
 		$this->state = $this->get('State');
-		$this->canDo = MinitekSliderHelper::getActions('com_minitekslider', 'widget', $this->item->id);
+		$this->canDo = ContentHelper::getActions('com_minitekslider', 'widget', $this->item->id);
 		$this->app = Factory::getApplication();
 
 		$this->source_id = $this->app->getUserState( 'com_minitekslider.source_id', '' ) ? $this->app->getUserState( 'com_minitekslider.source_id', '' ) : $this->item->source_id;
