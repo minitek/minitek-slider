@@ -146,17 +146,16 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 								<div class="mslider-item-img">
 
 									<?php
-									$img_attr = 'src';
 									if (isset($item->itemLink) && $this->slider_image_link) { ?>
 										<a
 											href="<?php echo $item->itemLink; ?>"
 											class="mslider-photo-link">
-											<img <?php echo $img_attr; ?>="<?php echo $item->itemImage; ?>" alt="<?php echo htmlspecialchars($item->itemTitleRaw); ?>" />
+											<img src="<?php echo $item->itemImage; ?>" alt="<?php echo htmlspecialchars($item->itemTitleRaw); ?>" />
 										</a>
 									<?php } else { ?>
 										<div
 											class="mslider-photo-link">
-											<img <?php echo $img_attr; ?>="<?php echo $item->itemImage; ?>" alt="<?php echo htmlspecialchars($item->itemTitleRaw); ?>" />
+											<img src="<?php echo $item->itemImage; ?>" alt="<?php echo htmlspecialchars($item->itemTitleRaw); ?>" />
 										</div>
 									<?php } ?>
 
