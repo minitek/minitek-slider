@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -15,7 +15,10 @@ class MinitekSliderLibJavascript
 	{
 		$document = JFactory::getDocument();
 
-		$javascript = "jQuery(function(){";
+		$javascript = "
+			;(function($) {
+				$(function() {
+		";
 
 			$javascript .= $this->initializeSlider($slider_params, $widgetID);
 
@@ -37,11 +40,13 @@ class MinitekSliderLibJavascript
 				$javascript .= $this->initializeHoverBox($slider_params['slider_hb_effect'], $widgetID);
 			}
 
-		$javascript .= "});";
+		$javascript .= "
+				})
+			})(jQuery);	
+		";
 
 		//$document->addScriptDeclaration($javascript);
 		$document->addCustomTag('<script type="text/javascript">'.$javascript.'</script>');
-
 	}
 
 	public function initializeSlider($slider_params, $widgetID)
@@ -85,26 +90,29 @@ class MinitekSliderLibJavascript
 		{
 			$slider_params['slider_drag_threshold'] = 3;
 		}
+
 		$dragThreshold = (int)$slider_params['slider_drag_threshold'];
 
 		if (!isset($slider_params['slider_selected_attraction']) || !$slider_params['slider_selected_attraction'])
 		{
 			$slider_params['slider_selected_attraction'] = 0.025;
 		}
+
 		$selectedAttraction = $slider_params['slider_selected_attraction'];
 
 		if (!isset($slider_params['slider_friction']) || !$slider_params['slider_friction'])
 		{
 			$slider_params['slider_friction'] = 0.28;
 		}
+
 		$friction = $slider_params['slider_friction'];
 
 		if (!isset($slider_params['slider_free_scroll_friction']) || !$slider_params['slider_free_scroll_friction'])
 		{
 			$slider_params['slider_free_scroll_friction'] = 0.075;
 		}
-		$freeScrollFriction = $slider_params['slider_free_scroll_friction'];
 
+		$freeScrollFriction = $slider_params['slider_free_scroll_friction'];
 		$cellAlign = $slider_params['slider_cell_align'];
 
 		$contain = $slider_params['slider_contain'];
@@ -139,13 +147,11 @@ class MinitekSliderLibJavascript
 		$site_path = JURI::root();
 
 		$javascript = "
-
 			// Show slider
-			jQuery('#mslider_".$widgetID."').show();
+			$('#mslider_".$widgetID."').show();
 
 			// Initialize slider
-			var _slider = jQuery('#mslider_".$widgetID."').flickity({
-
+			var _slider = $('#mslider_".$widgetID."').flickity({
 				draggable: ".$draggable.",
 				freeScroll: ".$freeScroll.",
 				wrapAround: ".$wrapAround.",
@@ -169,11 +175,10 @@ class MinitekSliderLibJavascript
 				prevNextButtons: ".$prevNextButtons.",
 				pageDots: ".$pageDots.",
 				on: {
-			    ready: function() {
-			      jQuery('#mslider_".$widgetID."').addClass('flickity-ready');
-			    },
-			  }
-
+					ready: function() {
+						$('#mslider_".$widgetID."').addClass('flickity-ready');
+					},
+			  	}
 			});
 		";
 
@@ -183,13 +188,11 @@ class MinitekSliderLibJavascript
 	public function initializeProgressBar($widgetID)
 	{
 		$javascript = "
-
-			var _progressBar = jQuery('#mslider_progressbar_".$widgetID."');
+			var _progressBar = $('#mslider_progressbar_".$widgetID."');
 			_slider.on( 'scroll.flickity', function( event, progress ) {
 				progress = Math.max( 0, Math.min( 1, progress ) );
 				_progressBar.width( progress * 100 + '%' );
 			});
-
 		";
 
 		return $javascript;
@@ -198,20 +201,18 @@ class MinitekSliderLibJavascript
 	public function initializeMediaSlider($widgetID)
 	{
 		$javascript = "
+			$('#mslider_".$widgetID." .mslider-media-db').insertAfter('#mslider_".$widgetID." .flickity-viewport');
 
-			jQuery('#mslider_".$widgetID." .mslider-media-db').insertAfter('#mslider_".$widgetID." .flickity-viewport');
-
-			jQuery('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box').each(function(index){
-				jQuery(this).attr('data-selectedindex', index);
+			$('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box').each(function(index){
+				$(this).attr('data-selectedindex', index);
 			});
 
-			jQuery('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box[data-selectedindex=\"0\"]').show();
+			$('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box[data-selectedindex=\"0\"]').show();
 
 			_slider.on( 'select.flickity', function(event, index) {
-				jQuery('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box').hide();
-				jQuery('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box[data-selectedindex=\"'+ index +'\"]').show();
+				$('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box').hide();
+				$('#mslider_".$widgetID." .mslider-media-db .mslider-detail-box[data-selectedindex=\"'+ index +'\"]').show();
 			})
-
 		";
 
 		return $javascript;
@@ -220,82 +221,97 @@ class MinitekSliderLibJavascript
 	public function initializeHoverBox($hoverBoxEffect, $widgetID)
 	{
 		$javascript = "
-
 			// Hover effects
 			var hoverBoxEffect = '".$hoverBoxEffect."';
 
 			// Hover box trigger
-			var triggerHoverBox = function triggerHoverBox() {
-
+			var triggerHoverBox = function triggerHoverBox() 
+			{
 				// Hover effects
-				jQuery('#mslider_".$widgetID."').on( 'mouseenter', '.mslider-item', function(e)
+				$('#mslider_".$widgetID."').on( 'mouseenter', '.mslider-item', function(e)
 				{
-					if (hoverBoxEffect == 'no') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('hoverShow');
+					if (hoverBoxEffect == 'no') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('hoverShow');
 					}
-					if (hoverBoxEffect == '1') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('hoverFadeIn');
+					else if (hoverBoxEffect == '1') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('hoverFadeIn');
 					}
-					if (hoverBoxEffect == '2') {
-						jQuery(this).stop().addClass('perspective');
-						jQuery(this).find('.mslider-item-outer-cont').stop().addClass('flip flipY hoverFlipY');
+					else if (hoverBoxEffect == '2') 
+					{
+						$(this).stop().addClass('perspective');
+						$(this).find('.mslider-item-outer-cont').stop().addClass('flip flipY hoverFlipY');
 					}
-					if (hoverBoxEffect == '3') {
-						jQuery(this).stop().addClass('perspective');
-						jQuery(this).find('.mslider-item-outer-cont').stop().addClass('flip flipX hoverFlipX');
+					else if (hoverBoxEffect == '3') 
+					{
+						$(this).stop().addClass('perspective');
+						$(this).find('.mslider-item-outer-cont').stop().addClass('flip flipX hoverFlipX');
 					}
-					if (hoverBoxEffect == '4') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('animated slideInRight');
+					else if (hoverBoxEffect == '4') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('animated slideInRight');
 					}
-					if (hoverBoxEffect == '5') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('animated slideInLeft');
+					else if (hoverBoxEffect == '5') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('animated slideInLeft');
 					}
-					if (hoverBoxEffect == '6') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('animated slideInTop');
+					else if (hoverBoxEffect == '6') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('animated slideInTop');
 					}
-					if (hoverBoxEffect == '7') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('animated slideInBottom');
+					else if (hoverBoxEffect == '7') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('animated slideInBottom');
 					}
-					if (hoverBoxEffect == '8') {
-						jQuery(this).find('.mslider-hover-box').stop().addClass('animated msliderzoomIn');
+					else if (hoverBoxEffect == '8') 
+					{
+						$(this).find('.mslider-hover-box').stop().addClass('animated msliderzoomIn');
 					}
 				});
 
-				jQuery('#mslider_".$widgetID."').on( 'mouseleave', '.mslider-item', function(e)
+				$('#mslider_".$widgetID."').on( 'mouseleave', '.mslider-item', function(e)
 				{
-					if (hoverBoxEffect == 'no') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('hoverShow');
+					if (hoverBoxEffect == 'no') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('hoverShow');
 					}
-					if (hoverBoxEffect == '1') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('hoverFadeIn');
+					else if (hoverBoxEffect == '1') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('hoverFadeIn');
 					}
-					if (hoverBoxEffect == '2') {
-						jQuery(this).find('.mslider-item-outer-cont').stop().removeClass('hoverFlipY');
+					else if (hoverBoxEffect == '2') 
+					{
+						$(this).find('.mslider-item-outer-cont').stop().removeClass('hoverFlipY');
 					}
-					if (hoverBoxEffect == '3') {
-						jQuery(this).find('.mslider-item-outer-cont').stop().removeClass('hoverFlipX');
+					else if (hoverBoxEffect == '3') 
+					{
+						$(this).find('.mslider-item-outer-cont').stop().removeClass('hoverFlipX');
 					}
-					if (hoverBoxEffect == '4') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('slideInRight');
+					else if (hoverBoxEffect == '4') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('slideInRight');
 					}
-					if (hoverBoxEffect == '5') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('slideInLeft');
+					else if (hoverBoxEffect == '5') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('slideInLeft');
 					}
-					if (hoverBoxEffect == '6') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('slideInTop');
+					else if (hoverBoxEffect == '6') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('slideInTop');
 					}
-					if (hoverBoxEffect == '7') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('slideInBottom');
+					else if (hoverBoxEffect == '7') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('slideInBottom');
 					}
-					if (hoverBoxEffect == '8') {
-						jQuery(this).find('.mslider-hover-box').stop().removeClass('msliderzoomIn');
+					else if (hoverBoxEffect == '8') 
+					{
+						$(this).find('.mslider-hover-box').stop().removeClass('msliderzoomIn');
 					}
 				});
-
 			};
 
 			triggerHoverBox();
-
 		";
 
 		return $javascript;
