@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -83,9 +83,6 @@ class com_miniteksliderInstallerScript
 	{
 		if ($type != 'uninstall')
 		{
-			// Install auth plugin
-			self::installAuthPlugin();
-
 			// Install Minitek Slider Module
 			self::installModule();
 
@@ -529,50 +526,6 @@ class com_miniteksliderInstallerScript
 				throw new GenericDataException('Error 4.0.6: Could not delete column custom_source.', 500);
 
 				return false;
-			}
-		}
-	}
-
-	/**
-	 * Install Minitek Updates Authentication Plugin.
-	 *
-	 * @since   4.0.6
-	 */
-	private static function installAuthPlugin()
-	{
-		$db = Factory::getDbo();
-		$query = $db->getQuery(true)
-			->select('*')
-			->from($db->quoteName('#__extensions'))
-			->where($db->quoteName('folder').' = '.$db->quote('installer'))
-			->where($db->quoteName('element').' = '.$db->quote('minitekupdatesauth'));
-		$db->setQuery($query);
-
-		if (!$result = $db->loadObject())
-		{
-			$app = Factory::getApplication();
-			$input = $app->input;
-			$xml = 'https://www.minitek.gr/index.php?option=com_ars&view=update&task=stream&format=xml&id=36';
-
-			if (!$url = self::getInstallUrl($xml))
-			{
-				return false;
-			}
-
-			$input->set('installtype', 'url', 'STRING');
-			$input->set('install_url', $url, 'STRING');
-			$installModel = new InstallModel;
-
-			if ($installModel->install())
-			{
-				// Enable plugin
-				$query = $db->getQuery(true)
-					->update($db->quoteName('#__extensions'))
-					->set($db->quoteName('enabled').' = '.$db->quote(1))
-					->where($db->quoteName('element').' = '.$db->quote('minitekupdatesauth'))
-					->where($db->quoteName('type').' = '.$db->quote('plugin'));
-				$db->setQuery($query);
-				$db->execute();
 			}
 		}
 	}
