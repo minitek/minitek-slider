@@ -143,6 +143,21 @@ class MinitekSliderLibJavascript
 			$pageDots = 'false';
 		}
 
+		$fullscreenChange = "fullscreenChange: function(isFullscreen) {
+			if (isFullscreen)
+			{
+				fix_heights('');
+
+				// Fix media slider height
+				var media_db_height = $('#mslider_".$widgetID."').find('.mslider-media-db').outerHeight();
+				$('#mslider_".$widgetID.".mslider_media_slider.is-fullscreen').css('height', 'calc(100% - '+media_db_height+'px)');
+			}
+			else 
+			{
+				fix_heights('100%');
+			}
+		}";
+
 		$arrows_color = $slider_params['slider_arrows_color'];
 		$site_path = JURI::root();
 
@@ -177,9 +192,20 @@ class MinitekSliderLibJavascript
 				on: {
 					ready: function() {
 						$('#mslider_".$widgetID."').addClass('flickity-ready');
+						fix_heights('100%');
 					},
+					".$fullscreenChange."
 			  	}
 			});
+
+			// Fix item heights
+			function fix_heights(h)
+			{
+				$('#mslider_".$widgetID.".mslider_image_slider').find('.mslider-item.no_image').css('height', h);
+				$('#mslider_".$widgetID.".mslider_article_slider_1').find('.mslider-item.no_image').css('height', h);
+				$('#mslider_".$widgetID.".mslider_article_slider_2').find('.mslider-item.no_image').css('height', h);
+				$('#mslider_".$widgetID.".mslider_article_slider_5').find('.mslider-item.no_image').css('height', h);
+			}
 		";
 
 		return $javascript;

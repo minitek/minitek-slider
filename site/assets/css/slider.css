@@ -34,7 +34,7 @@ website:   	https://www.minitek.gr
 	height: 100%;
 	background: hsla(0, 0%, 0%, 0.9);
 	padding-bottom: 35px;
-	z-index: 1;
+	z-index: 9999;
 }
 
 .mslider-wrapper.is-fullscreen .mslider_main {
@@ -53,7 +53,7 @@ website:   	https://www.minitek.gr
 }
 
 .mslider-wrapper.is-fullscreen .mslider_media_slider.with-navigator .mslider-media-db {
-	padding: 50px 0 0;
+	padding: 40px 0 0;
 }
 
 .mslider-wrapper.is-fullscreen .mslider_media_slider.with-navigator .mslider-detail-box {
@@ -76,7 +76,7 @@ website:   	https://www.minitek.gr
 }
 
 .mslider.mslider_without_bullets {
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 .mslider.mslider_with_bullets_progressbar {
@@ -121,7 +121,6 @@ website:   	https://www.minitek.gr
 
 .mslider-detail-box {
 	z-index: 9;
-	padding: 10px;
 	padding: 20px 10px;
 }
 
@@ -235,10 +234,6 @@ website:   	https://www.minitek.gr
 	align-self: flex-start;
 }
 
-.mslider_image_slider .mslider-item.no_image {
-	height: 100%;
-}
-
 .mslider_image_slider .mslider-detail-box {
 	position: absolute;
 	bottom: 5%;
@@ -257,10 +252,6 @@ website:   	https://www.minitek.gr
 /* /////////////////////////////////////// */
 /* Article slider 1
 /* /////////////////////////////////////// */
-
-.mslider_article_slider_1 .mslider-item.no_image {
-	height: 100%;
-}
 
 .mslider_article_slider_1 .mslider-cover,
 .mslider_article_slider_1 .mslider-img-div,
@@ -285,10 +276,6 @@ website:   	https://www.minitek.gr
 /* /////////////////////////////////////// */
 /* Article slider 2
 /* /////////////////////////////////////// */
-
-.mslider_article_slider_2 .mslider-item.no_image {
-	height: 100%;
-}
 
 .mslider_article_slider_2 .mslider-cover,
 .mslider_article_slider_2 .mslider-img-div,
@@ -418,10 +405,6 @@ website:   	https://www.minitek.gr
 /* Article slider 5
 /* /////////////////////////////////////// */
 
-.mslider_article_slider_5 .mslider-item.no_image {
-	height: 100%;
-}
-
 .mslider_article_slider_5 .mslider-detail-box {
 	position: absolute;
 	top: 0;
@@ -454,14 +437,14 @@ website:   	https://www.minitek.gr
 /* Media slider
 /* /////////////////////////////////////// */
 
+.mslider-wrapper.is-fullscreen .mslider_media_slider .mslider-item {
+	height: auto;
+}
+
 .mslider_media_slider .mslider-item {
 	transform: scale(0.75,0.75) translateY(-66%);
 	transition: transform .4s ease-out;
 	box-sizing: content-box;
-}
-
-.mslider_media_slider .mslider-item.no_image {
-	height: 100%;
 }
 
 .mslider_media_slider .mslider-item.is-selected {
@@ -470,7 +453,7 @@ website:   	https://www.minitek.gr
 
 .mslider-media-db {
 	text-align: center;
-	padding: 20px 0 0;
+	padding: 40px 0 0;
 	overflow: hidden;
 }
 
