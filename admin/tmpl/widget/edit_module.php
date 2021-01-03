@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -33,9 +33,9 @@ $moduleInstalled = $this->moduleInstalled;
 							<div class="col-12 text-center">
 								<h3 class="m-3"><?php echo Text::_('COM_MINITEKSLIDER_MODAL_MODULE_NOT_FOUND'); ?></h3>
 								<p><?php echo Text::_('COM_MINITEKSLIDER_MODAL_MODULE_NOT_FOUND_DESC'); ?></p>
-								<a class="button-success btn btn-sm btn-success m-3" href="<?php echo JRoute::_('index.php?option=com_installer'); ?>">
+								<a class="button-success btn btn-sm btn-success m-3" href="https://www.minitek.gr/downloads/minitek-slider-module" target="_blank">
 									<span class="icon-download" aria-hidden="true"></span>
-									<?php echo JText::_('COM_MINITEKSLIDER_MODAL_MODULE_INSTALL'); ?>
+									<?php echo JText::_('COM_MINITEKSLIDER_DASHBOARD_DOWNLOAD'); ?>
 								</a>
 							</div>
 						<?php } else if ($moduleInstalled && !$isNew) { ?>
