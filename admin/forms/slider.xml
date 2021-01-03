@@ -777,11 +777,23 @@
 			</field>
 
 			<field
+				name="slider_overlay_arrows"
+				type="radio"
+				layout="joomla.form.field.radio.switcher"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_OVERLAY_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_OVERLAY_DESC"
+				default="1"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
 				name="slider_arrows_color"
 				type="color"
 				default="#525a80"
-        label="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_LABEL"
-        description="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_DESC"
+				label="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_LABEL"
+				description="COM_MINITEKSLIDER_FIELD_NAVIGATION_ARROWS_COLOR_DESC"
 			/>
 
 			<field

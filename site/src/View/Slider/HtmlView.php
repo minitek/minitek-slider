@@ -62,6 +62,10 @@ class HtmlView extends BaseHtmlView
 
 		// Get navigation
 		$arrows = $this->slider_params['slider_arrows'];
+		$this->horizontal_padding = 
+			isset($this->slider_params['slider_overlay_arrows']) && $this->slider_params['slider_overlay_arrows'] 
+			? false 
+			: true;
 		$this->bullets = $this->slider_params['slider_bullets'];
 		$this->bullets_style = $this->slider_params['slider_bullets_style'];
 		$this->progressbar = $this->slider_params['slider_progressbar'];
