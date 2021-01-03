@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -178,6 +178,7 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 								<span class="icon-support" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/forum/joomla/minitek-slider" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_TECHNICAL_SUPPORT'); ?></a>
+									<span class="badge badge-danger">Pro</span>
 								</span>
 							</li>
 							<li class="list-group-item">
