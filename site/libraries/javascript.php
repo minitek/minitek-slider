@@ -51,40 +51,11 @@ class MinitekSliderLibJavascript
 
 	public function initializeSlider($slider_params, $widgetID)
 	{
-		$draggable = $slider_params['slider_drag'];
-		if ($draggable) {
-			$draggable = "'>1'";
-		} else {
-			$draggable = 'false';
-		}
-
-		$freeScroll = $slider_params['slider_free_scroll'];
-		if ($freeScroll) {
-			$freeScroll = 'true';
-		} else {
-			$freeScroll = 'false';
-		}
-
-		$wrapAround = $slider_params['slider_rewind'];
-		if ($wrapAround && !$load_more) {
-			$wrapAround = 'true';
-		} else {
-			$wrapAround = 'false';
-		}
-
-		$fullscreen = $slider_params['slider_fullscreen'];
-		if ($fullscreen) {
-			$fullscreen = 'true';
-		} else {
-			$fullscreen = 'false';
-		}
-
-		$adaptiveHeight = $slider_params['slider_adaptive_height'];
-		if ($adaptiveHeight) {
-			$adaptiveHeight = 'true';
-		} else {
-			$adaptiveHeight = 'false';
-		}
+		$draggable = $slider_params['slider_drag'] ? "'>1'" : 'false';
+		$freeScroll = $slider_params['slider_free_scroll'] ? 'true' : 'false';
+		$wrapAround = ($slider_params['slider_rewind'] && !$load_more) ? 'true' : 'false';
+		$fullscreen = $slider_params['slider_fullscreen'] ? 'true' : 'false';
+		$adaptiveHeight = $slider_params['slider_adaptive_height'] ? 'true' : 'false';
 
 		if (!isset($slider_params['slider_drag_threshold']) || !$slider_params['slider_drag_threshold'])
 		{
@@ -114,34 +85,10 @@ class MinitekSliderLibJavascript
 
 		$freeScrollFriction = $slider_params['slider_free_scroll_friction'];
 		$cellAlign = $slider_params['slider_cell_align'];
-
-		$contain = $slider_params['slider_contain'];
-		if ($contain) {
-			$contain = 'true';
-		} else {
-			$contain = 'false';
-		}
-
-		$rightToLeft = $slider_params['slider_rtl'];
-		if ($rightToLeft) {
-			$rightToLeft = 'true';
-		} else {
-			$rightToLeft = 'false';
-		}
-
-		$prevNextButtons = $slider_params['slider_arrows'];
-		if ($prevNextButtons) {
-			$prevNextButtons = 'true';
-		} else {
-			$prevNextButtons = 'false';
-		}
-
-		$pageDots = $slider_params['slider_bullets'];
-		if ($pageDots) {
-			$pageDots = 'true';
-		} else {
-			$pageDots = 'false';
-		}
+		$contain = $slider_params['slider_contain'] ? 'true' : 'false';
+		$rightToLeft = $slider_params['slider_rtl'] ? 'true' : 'false';
+		$prevNextButtons = $slider_params['slider_arrows'] ? 'true' : 'false';
+		$pageDots = $slider_params['slider_bullets'] ? 'true' : 'false';
 
 		$fullscreenChange = "fullscreenChange: function(isFullscreen) {
 			if (isFullscreen)
