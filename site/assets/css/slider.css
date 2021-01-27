@@ -967,3 +967,12 @@ h3.mslider-title a:focus {
 .mslider-loader {
 	display: none;
 }
+
+/* /////////////////////////////////////// */
+/* Bullets
+/* /////////////////////////////////////// */
+
+.mslider ol.flickity-page-dots {
+	padding: 0 !important;
+	left: 0;
+}
