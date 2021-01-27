@@ -3,10 +3,10 @@
 	<name>com_minitekslider</name>
 	<author>Minitek.gr</author>
 	<creationDate>June 2019</creationDate>
-	<copyright>(C) 2011 - 2020 Minitek.gr. All rights reserved.</copyright>
+	<copyright>(C) 2011 - 2021 Minitek.gr. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later.</license>
 	<authorUrl>https://www.minitek.gr/</authorUrl>
-	<version>4.0.7</version>
+	<version>4.0.8</version>
 	<namespace path="src">Joomla\Component\MinitekSlider</namespace>
 	<description>
 	<![CDATA[
