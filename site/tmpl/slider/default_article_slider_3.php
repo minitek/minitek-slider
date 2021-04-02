@@ -14,7 +14,7 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 	foreach ($this->slider as $key=>$item)
 	{
 		?><div class="mslider-item <?php 
-			if (!$item->itemImage || !$this->slider_images) 
+			if (!isset($item->itemImage) || !$item->itemImage || !$this->slider_images) 
 			{
 				echo 'no_image ';
 			}

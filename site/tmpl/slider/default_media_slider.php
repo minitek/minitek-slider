@@ -18,7 +18,7 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 			{
 				echo 'no_images ';
 			} 
-			else if (!$item->itemImage) 
+			else if (!isset($item->itemImage) || !$item->itemImage) 
 			{
 				echo 'no_image ';
 			}
@@ -60,7 +60,7 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 							{
 								?><div class="mslider-detail-box <?php 
 									echo $this->detailBoxTextColor; 
-									if (!$item->itemImage || !$this->slider_images) 
+									if (!isset($item->itemImage) || !$item->itemImage || !$this->slider_images) 
 									{
 										echo ' no_image';
 									} 

@@ -44,38 +44,39 @@ if (isset($this->suffix))
 }
 
 // Wrapper padding
-if ((!$this->bullets && $this->progressbar) || (!$this->bullets && !$this->progressbar))
+if (!$this->cont_padding)
+{
+	$padding = '0 0 1px 0';
+}
+else 
 {
 	$padding = $this->cont_padding.'px';
 }
-else
-{
-	if ($this->bullets && !$this->progressbar)
-	{
-		$padding = $this->cont_padding.'px '.$this->cont_padding.'px '.(30 + $this->cont_padding).'px '.$this->cont_padding.'px';
-	}
-	else if ($this->bullets && $this->progressbar)
-	{
-		$padding = $this->cont_padding.'px '.$this->cont_padding.'px '.(20 + $this->cont_padding).'px '.$this->cont_padding.'px';
-	}
-}
 
 // Slider Container
-?><div id="mslider_wrapper_<?php echo $this->widgetID; ?>" class="mslider-wrapper" style="padding: <?php echo $padding; ?>;"><?php
+?><div id="mslider_wrapper_<?php echo $this->widgetID; 
+	?>" class="mslider-wrapper" style="padding: <?php echo $padding; ?>;"><?php
 
-	// Main slider
-	?><div id="mslider_<?php echo $this->widgetID; ?>" class="mslider mslider_main mslider_<?php 
-		echo $this->theme; ?> <?php 
-		echo $this->horizontal_padding ? 'mslider_horizontal_padding' : ''; ?> <?php 
-		echo $this->bullets_style.'-bullets'; ?> <?php 
-		echo $suffix; ?>"><?php
-		include (dirname(__FILE__).'/'.$this->getLayout().'_'.$this->theme.'.php');
+	?><div class="mslider-wrapper-inner <?php
+	echo $this->horizontal_padding ? 'mslider_horizontal_padding' : ''; ?>"><?php 
+		
+		// Main slider
+		?><div id="mslider_<?php echo $this->widgetID; 
+			?>" class="mslider mslider_main mslider_<?php echo $this->theme; ?> <?php 
+			echo ($this->bullets) ? 'with-bullets' : ''; ?> <?php
+			echo ($this->progressbar) ? 'with-progressbar' : ''; ?> <?php
+			echo $this->bullets_style.'-bullets'; ?> <?php 
+			echo $suffix; ?>"><?php
+			include (dirname(__FILE__).'/'.$this->getLayout().'_'.$this->theme.'.php');
+		?></div><?php
+
+		// Progress bar
+		if ($this->progressbar)
+		{
+			?><div id="mslider_progressbar_<?php echo $this->widgetID; ?>" class="mslider-progressbar <?php
+			echo ($this->bullets) ? 'with-bullets' : ''; ?>"></div><?php
+		}
+	
 	?></div><?php
-
-	// Progress bar
-	if ($this->progressbar)
-	{
-		?><div id="mslider_progressbar_<?php echo $this->widgetID; ?>" class="mslider-progressbar"></div><?php
-	}
-
+	
 ?></div>
