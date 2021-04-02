@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -91,15 +91,6 @@ class HtmlView extends BaseHtmlView
 				$document->addCustomTag('<script src="'.\JURI::base().'components/com_minitekslider/assets/js/flickity.fullscreen.js" type="text/javascript"></script>');
 			}
 
-			// Load lightbox
-			$lightbox = false;
-			if ($this->slider_params['slider_hb'] && isset($this->slider_params['slider_hb_lightbox']) && $this->slider_params['slider_hb_lightbox'] && $this->params->get('load_lightbox', true))
-			{
-				$lightbox = true;
-				$document->addStyleSheet(\JURI::base(true).'/components/com_minitekslider/assets/lightbox/lightbox.min.css');
-				$document->addCustomTag('<script src="'.\JURI::base(true).'/components/com_minitekslider/assets/lightbox/lightbox.min.js" type="text/javascript"></script>');
-			}
-
 			// Load javascript.php
 			$slider_javascript = $this->model->slider_javascript;
 			$slider_javascript->loadSliderJavascript($this->slider_params, $this->widgetID);
@@ -151,10 +142,10 @@ class HtmlView extends BaseHtmlView
 		$this->hoverBoxAuthor = $this->slider_params['slider_hb_author'];
 		$this->hoverBoxHits = $this->slider_params['slider_hb_hits'];
 		$this->hoverBoxLinkButton = $this->slider_params['slider_hb_link'];
-		$this->hoverBoxLightboxButton = false;
-		if (isset($this->slider_params['slider_hb_lightbox']))
+		$this->hoverBoxZoomButton = false;
+		if (isset($this->slider_params['slider_hb_zoom']))
 		{
-			$this->hoverBoxLightboxButton = $this->slider_params['slider_hb_lightbox'];
+			$this->hoverBoxZoomButton = $this->slider_params['slider_hb_zoom'];
 		}
 
 		// Hover effects

@@ -138,7 +138,7 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 												</div><?php 
 											}
 
-											if ($this->hoverBoxLinkButton || $this->hoverBoxLightboxButton) 
+											if ($this->hoverBoxLinkButton || $this->hoverBoxZoomButton) 
 											{
 												?><div class="mslider-item-icons"><?php 
 													if ($this->hoverBoxLinkButton) 
@@ -151,9 +151,9 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 														}
 													}
 
-													if ($this->hoverBoxLightboxButton && (isset($item->itemImage) && $item->itemImage && $this->slider_images)) 
+													if ($this->hoverBoxZoomButton && (isset($item->itemImage) && $item->itemImage && $this->slider_images)) 
 													{
-														?><a href="<?php echo $item->itemImageRaw; ?>" class="mslider-lightbox mslider-item-lightbox-icon" data-lightbox="lb-<?php echo $this->widgetID; ?>" data-title="<?php echo htmlspecialchars($item->itemTitleRaw); ?>">
+														?><a data-bs-toggle="modal" data-bs-target="#zoomSlider_<?php echo $this->widgetID; ?>" class="mslider-zoom mslider-item-zoom-icon" data-src="<?php echo $item->itemImage; ?>" data-title="<?php echo htmlspecialchars($item->itemTitleRaw); ?>">
 															<i class="fa fa-search"></i>
 														</a><?php 
 													}
@@ -337,7 +337,7 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 								</div><?php 
 							}
 
-							if ($this->hoverBoxLinkButton || $this->hoverBoxLightboxButton) 
+							if ($this->hoverBoxLinkButton || $this->hoverBoxZoomButton) 
 							{
 								?><div class="mslider-item-icons"><?php 
 									if ($this->hoverBoxLinkButton) 
@@ -350,9 +350,9 @@ if (!empty($this->slider) ||  $this->slider!== 0)
 										}
 									}
 
-									if ($this->hoverBoxLightboxButton && (isset($item->itemImage) && $item->itemImage && $this->slider_images)) 
+									if ($this->hoverBoxZoomButton && (isset($item->itemImage) && $item->itemImage && $this->slider_images)) 
 									{
-										?><a href="<?php echo $item->itemImageRaw; ?>" class="mslider-lightbox mslider-item-lightbox-icon" data-lightbox="lb-<?php echo $this->widgetID; ?>" data-title="<?php echo htmlspecialchars($item->itemTitleRaw); ?>">
+										?><a data-bs-toggle="modal" data-bs-target="#zoomSlider_<?php echo $this->widgetID; ?>" class="mslider-zoom mslider-item-zoom-icon" data-src="<?php echo $item->itemImage; ?>" data-title="<?php echo htmlspecialchars($item->itemTitleRaw); ?>">
 											<i class="fa fa-search"></i>
 										</a><?php 
 									}
