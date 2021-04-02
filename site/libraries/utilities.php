@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\String\StringHelper;
 use Joomla\Image\Image;
 
@@ -171,12 +172,13 @@ class MinitekSliderLibUtilities
 	{
 		$path = str_replace(\JURI::base(), '', $path);
 		$imgSource = JPATH_SITE.DS. str_replace('/', DS, $path);
-
-		if (file_exists($imgSource))
+		$img = HTMLHelper::cleanImageURL($imgSource);
+		
+		if (file_exists($img->url))
 		{
 			$path =  $width."x".$height.'/'.$path;
 			$cropPath = JPATH_SITE.DS.'images'.DS.'mslider'.DS. str_replace('/', DS, $path);
-
+			
 			if (!file_exists($cropPath))
 			{
 				if (!self::makeDir($path))
@@ -185,12 +187,26 @@ class MinitekSliderLibUtilities
 				}
 
 				$image = new \JImage();
-				$image->loadFile($imgSource);
-				$image->resize($width, $height, true, \JImage::SCALE_INSIDE)
-				->toFile($cropPath);
-			}
+				$image->loadFile($img->url);
+				$thumbs = $image->generateThumbs($width.'x'.$height, 5);
 
+				foreach ($thumbs as $thumb)
+				{
+					$thumb->toFile($cropPath);
+				}
+			}
+			
 			$path = \JURI::base().'images/mslider/'.$path;
+
+			// Rename file; Remove url parameters from stored cropped file name
+			$clean_name = str_replace(JPATH_SITE.'/', '', $img->url); 
+			$stored_name = $clean_name.'?joomla_image_width='.$img->attributes['width'].'&joomla_image_height='.$img->attributes['height'];
+			
+			$clean_path = JPATH_SITE.DS.'images'.DS.'mslider'.DS.$width.'x'.$height.DS.$clean_name;
+			$stored_path = JPATH_SITE.DS.'images'.DS.'mslider'.DS.$width.'x'.$height.DS.$stored_name;
+			
+			if (file_exists($stored_path))
+				rename($stored_path, $clean_path);
 		}
 
 		return $path;
