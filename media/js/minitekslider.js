@@ -6,13 +6,11 @@
         /*
         * Constructor
         */
-        constructor(options, id, count, path) 
+        constructor(options, id) 
         {
             const self = this;
             this.options = options;
             this.widgetId = parseInt(id, 10);
-            this.totalCount = parseInt(count, 10);
-            this.path = path;	
 
             this.mediaSlider = (this.options.slider_theme == 'media_slider') ? true : false;
 			this.hoverbox = parseInt(this.options.slider_hb, 10);
@@ -401,7 +399,7 @@
     }
 
     window.Mslider = {
-        initialise: (options, id, count, path) => new Mslider(options, id, count, path)
+        initialise: (options, id) => new Mslider(options, id)
     };
     
 })(document, Joomla);

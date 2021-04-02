@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -11,6 +11,8 @@ namespace Joomla\Component\MinitekSlider\Administrator\Extension;
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Extension\BootableExtensionInterface;
 use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
@@ -43,7 +45,8 @@ class MinitekSliderComponent extends MVCComponent implements BootableExtensionIn
 	 */
 	public function boot(ContainerInterface $container)
 	{
-		$this->loadAssets();
+		if (Factory::getApplication()->isClient('administrator'))
+			$this->loadAssets();
 	}
 
 	/**
@@ -55,13 +58,9 @@ class MinitekSliderComponent extends MVCComponent implements BootableExtensionIn
 	 */
 	protected function loadAssets()
 	{
-		$document = \JFactory::getDocument();
-
-		// Add stylesheets
-		$document->addStyleSheet(\JURI::root(true).'/administrator/components/com_minitekslider/assets/css/style.css');
-
-		// Add js
-		$document->addScript(\JURI::root(true).'/administrator/components/com_minitekslider/assets/js/script.js');
+		$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+		$wa->useStyle('com_minitekslider.admin-minitekslider')
+			->useScript('com_minitekslider.admin-minitekslider');
 	}
 
 	/**
@@ -74,9 +73,9 @@ class MinitekSliderComponent extends MVCComponent implements BootableExtensionIn
 	protected function checkAccess()
 	{
 		// Access check
-		if (!\JFactory::getUser()->authorise('core.manage', 'com_minitekslider'))
+		if (!Factory::getUser()->authorise('core.manage', 'com_minitekslider'))
 		{
-			throw new \Joomla\CMS\Access\Exception\Notallowed(\JText::_('JERROR_ALERTNOAUTHOR'), 403);
+			throw new \Joomla\CMS\Access\Exception\Notallowed(Text::_('JERROR_ALERTNOAUTHOR'), 403);
 		}
 	}
 }

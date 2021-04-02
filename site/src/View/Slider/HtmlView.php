@@ -72,28 +72,35 @@ class HtmlView extends BaseHtmlView
 
 		if ($page === '1')
 		{
-			// Load css
-			$document->addStyleSheet(\JURI::base().'components/com_minitekslider/assets/css/flickity.css');
-			$document->addStyleSheet(\JURI::base().'components/com_minitekslider/assets/css/slider.css');
+			// Add assets
+			$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+			$wa->useStyle('com_minitekslider.minitekslider')
+				->useStyle('com_minitekslider.flickity')
+				->useScript('com_minitekslider.flickity');
+			
 			if ($this->slider_params['slider_fullscreen'])
 			{
-				$document->addStyleSheet(\JURI::base().'components/com_minitekslider/assets/css/flickity.fullscreen.css');
+				$wa->useStyle('com_minitekslider.flickity-fullscreen')
+					->useScript('com_minitekslider.flickity-fullscreen');
 			}
+			
+			$wa->useScript('com_minitekslider.minitekslider');
 
+			// Dynamic css
 			$slider_css = $this->model->slider_css;
 			$slider_css->loadResponsiveSlider($this->slider_params, $this->widgetID);
 			$slider_css->loadDynamicCss($this->slider_params, $this->widgetID);
 
-			// Load scripts
-			$document->addCustomTag('<script src="'.\JURI::base().'components/com_minitekslider/assets/js/flickity.pkgd.min.js" type="text/javascript"></script>');
-			if ($this->slider_params['slider_fullscreen'])
+			// Initialize Slider
+			$document->addScriptDeclaration("
+			document.addEventListener('DOMContentLoaded', function() 
 			{
-				$document->addCustomTag('<script src="'.\JURI::base().'components/com_minitekslider/assets/js/flickity.fullscreen.js" type="text/javascript"></script>');
-			}
-
-			// Load javascript.php
-			$slider_javascript = $this->model->slider_javascript;
-			$slider_javascript->loadSliderJavascript($this->slider_params, $this->widgetID);
+				Mslider.initialise(
+					".json_encode($this->slider_params).", 
+					".$this->widgetID."
+				);
+			});
+			");
 		}
 
  		// Detail box
