@@ -37,7 +37,6 @@
 	</uninstall>
 
 	<files folder="site">
-		<folder>assets</folder>
 		<folder>language</folder>
 		<folder>libraries</folder>
 		<folder>src</folder>
@@ -64,7 +63,6 @@
 		</submenu>
 
 		<files folder="admin">
-			<folder>assets</folder>
 			<folder>forms</folder>
 			<folder>services</folder>
 			<folder>sql</folder>

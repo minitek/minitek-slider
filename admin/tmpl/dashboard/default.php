@@ -41,7 +41,7 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 		<div class="col-sm-12 col-md-8">
 			<div class="media mt-0">
 				<div class="float-start">
-					<img class="media-object" src="<?php echo URI::root(true).'/administrator/components/com_minitekslider/assets/images/logo.png'; ?>">
+					<img class="media-object" src="<?php echo URI::root(true).'/media/com_minitekslider/images/logo.png'; ?>">
 				</div>
 				<div class="media-body">
 			    <h2 class="media-heading"><?php echo Text::_('COM_MINITEKSLIDER'); ?> <span class="badge bg-success">Free</span></h2>

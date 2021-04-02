@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_minitekslider",
+  "version": "4.0.11",
+  "description": "A powerful responsive slider for Joomla.",
+  "license": "GPL-3.0-or-later",
+  "assets": [
+    {
+      "name": "com_minitekslider.admin-minitekslider",
+      "type": "style",
+      "uri": "com_minitekslider/admin-minitekslider.css"
+    },
+    {
+      "name": "com_minitekslider.admin-minitekslider",
+      "type": "script",
+      "uri": "com_minitekslider/admin-minitekslider.js",
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "com_minitekslider.admin-dashboard",
+      "type": "script",
+      "uri": "com_minitekslider/admin-dashboard.js",
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "com_minitekslider.fontawesome",
+      "type": "script",
+      "uri": "https://kit.fontawesome.com/ddbd3bdfdd.js"
+    },
+    {
+      "name": "com_minitekslider.minitekslider",
+      "type": "style",
+      "uri": "com_minitekslider/minitekslider.css"
+    },
+    {
+      "name": "com_minitekslider.flickity",
+      "type": "style",
+      "uri": "com_minitekslider/flickity.css"
+    },
+    {
+      "name": "com_minitekslider.flickity-fullscreen",
+      "type": "style",
+      "uri": "com_minitekslider/flickity.fullscreen.css"
+    },
+    {
+      "name": "com_minitekslider.flickity",
+      "type": "script",
+      "uri": "com_minitekslider/flickity.pkgd.min.js"
+    },
+    {
+      "name": "com_minitekslider.flickity-fullscreen",
+      "type": "script",
+      "uri": "com_minitekslider/flickity.fullscreen.js"
+    },
+    {
+      "name": "com_minitekslider.minitekslider",
+      "type": "script",
+      "uri": "com_minitekslider/minitekslider.js",
+      "dependencies": [
+        "core"
+      ]
+    }
+  ]
+}

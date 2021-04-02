@@ -1,7 +1,7 @@
 <?php
 /**
 * @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
 * @license		GNU General Public License version 3 or later.
 * @author url	https://www.minitek.gr/
 * @developers	Minitek.gr
@@ -10,6 +10,8 @@
 namespace Joomla\Component\MinitekSlider\Administrator\Field;
 
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\URI\URI;
 
 \JFormHelper::loadFieldClass('radio');
 
@@ -61,7 +63,7 @@ class SliderListField extends \JFormFieldRadio
 
 						$html[] = '<div class="slider-radio-demo">';
 
-							$html[] = '<img alt="" src="components/com_minitekslider/assets/images/slider/'.$option->image.'">';
+							$html[] = '<img alt="" src="'.URI::root(true).'/media/com_minitekslider/images/themes/'.$option->image.'">';
 
 						$html[] = '</div>';
 
