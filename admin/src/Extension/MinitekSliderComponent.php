@@ -61,7 +61,6 @@ class MinitekSliderComponent extends MVCComponent implements BootableExtensionIn
 		$document->addStyleSheet(\JURI::root(true).'/administrator/components/com_minitekslider/assets/css/style.css');
 
 		// Add js
-		\JHtml::_('jquery.framework');
 		$document->addScript(\JURI::root(true).'/administrator/components/com_minitekslider/assets/js/script.js');
 	}
 
