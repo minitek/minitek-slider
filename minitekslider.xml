@@ -6,7 +6,7 @@
 	<copyright>(C) 2011 - 2021 Minitek.gr. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later.</license>
 	<authorUrl>https://www.minitek.gr/</authorUrl>
-	<version>4.0.9</version>
+	<version>4.0.10</version>
 	<namespace path="src">Joomla\Component\MinitekSlider</namespace>
 	<description>
 	<![CDATA[
@@ -15,6 +15,14 @@
 	</description>
 
 	<scriptfile>install.minitekslider.php</scriptfile>
+
+	<media destination="com_minitekslider" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+		<filename>joomla.asset.json</filename>
+		<filename>index.html</filename>
+	</media>
 
 	<install>
 		<sql>
