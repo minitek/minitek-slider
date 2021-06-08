@@ -1,11 +1,12 @@
 <?php
+
 /**
-* @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
-* @license		GNU General Public License version 3 or later.
-* @author url	https://www.minitek.gr/
-* @developers	Minitek.gr
-*/
+ * @title		Minitek Slider
+ * @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+ * @license		GNU General Public License version 3 or later.
+ * @author url	https://www.minitek.gr/
+ * @developers	Minitek.gr
+ */
 
 namespace Joomla\Component\MinitekSlider\Administrator\Table;
 
@@ -67,15 +68,13 @@ class WidgetTable extends Table
 	public function check()
 	{
 		// Check for valid name.
-		if (trim($this->name) == '')
-		{
-			$this->setError(JText::_('COM_MINITEKSLIDER_WIDGETS_WARNING_PROVIDE_VALID_NAME'));
+		if (trim($this->name) == '') {
+			$this->setError(\JText::_('COM_MINITEKSLIDER_WIDGETS_WARNING_PROVIDE_VALID_NAME'));
 			return false;
 		}
 
 		// Clean up description -- eliminate quotes and <> brackets
-		if (!empty($this->description))
-		{
+		if (!empty($this->description)) {
 			// Only process if not empty
 			$bad_characters = array("\"", "<", ">");
 			$this->description = StringHelper::str_ireplace($bad_characters, "", $this->description);
@@ -101,9 +100,8 @@ class WidgetTable extends Table
 		// Verify that the name is unique
 		$table = Table::getInstance('WidgetTable', __NAMESPACE__ . '\\');
 
-		if ($table->load(array('name' => $this->name)) && ($table->id != $this->id || $this->id == 0))
-		{
-			$this->name = $this->name.' - '.date('D, d M Y H:i:s');
+		if ($table->load(array('name' => $this->name)) && ($table->id != $this->id || $this->id == 0)) {
+			$this->name = $this->name . ' - ' . date('D, d M Y H:i:s');
 		}
 
 		return parent::store($updateNulls);

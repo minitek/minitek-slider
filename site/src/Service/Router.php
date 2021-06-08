@@ -1,11 +1,12 @@
 <?php
+
 /**
-* @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
-* @license		GNU General Public License version 3 or later.
-* @author url	https://www.minitek.gr/
-* @developers	Minitek.gr
-*/
+ * @title		Minitek Slider
+ * @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+ * @license		GNU General Public License version 3 or later.
+ * @author url	https://www.minitek.gr/
+ * @developers	Minitek.gr
+ */
 
 namespace Joomla\Component\MinitekSlider\Site\Service;
 
@@ -39,14 +40,12 @@ class Router extends RouterView
     {
         $segments = array();
 
-        if (isset($query['view']))
-        {
-	        unset($query['view']);
+        if (isset($query['view'])) {
+            unset($query['view']);
         }
 
-        if (isset($query['widget_id']))
-        {
-	        unset($query['widget_id']);
+        if (isset($query['widget_id'])) {
+            unset($query['widget_id']);
         }
 
         return $segments;
@@ -63,17 +62,16 @@ class Router extends RouterView
      */
     public function parse(&$segments)
     {
-		$lang = JFactory::getLanguage();
-		$lang->load('com_minitekslider', JPATH_SITE, $lang->getTag(), true);
+        $lang = JFactory::getLanguage();
+        $lang->load('com_minitekslider', JPATH_SITE, $lang->getTag(), true);
 
-		$vars = array();
+        $vars = array();
 
-		if (count($segments))
-		{
-			JError::raiseError(404, JText::_('COM_MINITEKSLIDER_ERROR_PAGE_NOT_FOUND'));
-		}
+        if (count($segments)) {
+            JError::raiseError(404, \JText::_('COM_MINITEKSLIDER_ERROR_PAGE_NOT_FOUND'));
+        }
 
-		return $vars;
+        return $vars;
     }
 }
 

@@ -1,11 +1,12 @@
 <?php
+
 /**
-* @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
-* @license		GNU General Public License version 3 or later.
-* @author url	https://www.minitek.gr/
-* @developers	Minitek.gr
-*/
+ * @title		Minitek Slider
+ * @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
+ * @license		GNU General Public License version 3 or later.
+ * @author url	https://www.minitek.gr/
+ * @developers	Minitek.gr
+ */
 
 namespace Joomla\Component\MinitekSlider\Site\View\Slider;
 
@@ -31,19 +32,19 @@ class HtmlView extends BaseHtmlView
 	 * @return  mixed  A string if successful, otherwise an Error object.
 	 */
 	public function display($tpl = null)
- 	{
-  	$document = \JFactory::getDocument();
- 		$this->model = $this->getModel();
- 		$this->utilities = $this->model->utilities;
- 		$this->params = $this->utilities->getParams('com_minitekslider');
- 		$jinput = \JFactory::getApplication()->input;
- 		$this->widgetID = $jinput->get('widget_id', '', 'INT');
- 		$page = $jinput->get('page', '1', 'INT');
+	{
+		$document = \JFactory::getDocument();
+		$this->model = $this->getModel();
+		$this->utilities = $this->model->utilities;
+		$this->params = $this->utilities->getParams('com_minitekslider');
+		$jinput = \JFactory::getApplication()->input;
+		$this->widgetID = $jinput->get('widget_id', '', 'INT');
+		$page = $jinput->get('page', '1', 'INT');
 
- 		// Get slider parameters
- 		$this->slider_params = $this->utilities->getSliderParams($this->widgetID);
+		// Get slider parameters
+		$this->slider_params = $this->utilities->getSliderParams($this->widgetID);
 
- 		// Get slider type
+		// Get slider type
 		$this->theme = $this->slider_params['slider_theme'];
 		$this->suffix = $this->slider_params['slider_suffix'];
 		$this->cont_padding = (int)$this->slider_params['slider_cont_padding'];
@@ -55,35 +56,32 @@ class HtmlView extends BaseHtmlView
 		// Images
 		$this->slider_images = $this->slider_params['slider_images'];
 		$this->slider_image_link = true;
-		if (array_key_exists('slider_image_link', $this->slider_params))
-		{
+		if (array_key_exists('slider_image_link', $this->slider_params)) {
 			$this->slider_image_link = $this->slider_params['slider_image_link'];
 		}
 
 		// Get navigation
 		$arrows = $this->slider_params['slider_arrows'];
-		$this->horizontal_padding = 
-			isset($this->slider_params['slider_overlay_arrows']) && $this->slider_params['slider_overlay_arrows'] 
-			? false 
+		$this->horizontal_padding =
+			isset($this->slider_params['slider_overlay_arrows']) && $this->slider_params['slider_overlay_arrows']
+			? false
 			: true;
 		$this->bullets = $this->slider_params['slider_bullets'];
 		$this->bullets_style = $this->slider_params['slider_bullets_style'];
 		$this->progressbar = $this->slider_params['slider_progressbar'];
 
-		if ($page === '1')
-		{
+		if ($page === '1') {
 			// Add assets
 			$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 			$wa->useStyle('com_minitekslider.minitekslider')
 				->useStyle('com_minitekslider.flickity')
 				->useScript('com_minitekslider.flickity');
-			
-			if ($this->slider_params['slider_fullscreen'])
-			{
+
+			if ($this->slider_params['slider_fullscreen']) {
 				$wa->useStyle('com_minitekslider.flickity-fullscreen')
 					->useScript('com_minitekslider.flickity-fullscreen');
 			}
-			
+
 			$wa->useScript('com_minitekslider.minitekslider');
 
 			// Dynamic css
@@ -96,14 +94,14 @@ class HtmlView extends BaseHtmlView
 			document.addEventListener('DOMContentLoaded', function() 
 			{
 				Mslider.initialise(
-					".json_encode($this->slider_params).", 
-					".$this->widgetID."
+					" . json_encode($this->slider_params) . ", 
+					" . $this->widgetID . "
 				);
 			});
 			");
 		}
 
- 		// Detail box
+		// Detail box
 		$this->detailBox = $this->slider_params['slider_db'];
 		$detailBoxBackground = $this->slider_params['slider_db_bg'];
 		$this->detailBoxBackground = $this->utilities->hex2RGB($detailBoxBackground, true);
@@ -112,8 +110,7 @@ class HtmlView extends BaseHtmlView
 		$this->detailBoxTextColor = $this->slider_params['slider_db_color'];
 		$this->detailBoxTitle = $this->slider_params['slider_db_title'];
 		$this->detailBoxTitleLink = true;
-		if (array_key_exists('slider_db_title_link', $this->slider_params))
-		{
+		if (array_key_exists('slider_db_title_link', $this->slider_params)) {
 			$this->detailBoxTitleLink = $this->slider_params['slider_db_title_link'];
 		}
 		$detailBoxTitleLimit = $this->slider_params['slider_db_title_limit'];
@@ -129,7 +126,7 @@ class HtmlView extends BaseHtmlView
 		$this->detailBoxCount = $this->slider_params['slider_db_count'];
 		$this->detailBoxReadmore = $this->slider_params['slider_db_readmore'];
 
- 		// Hover box
+		// Hover box
 		$this->hoverBox = $this->slider_params['slider_hb'];
 		$this->hoverBoxBg = $this->slider_params['slider_hb_bg'];
 		$this->hoverBoxBgOpacity = $this->slider_params['slider_hb_bg_opacity'];
@@ -150,79 +147,67 @@ class HtmlView extends BaseHtmlView
 		$this->hoverBoxHits = $this->slider_params['slider_hb_hits'];
 		$this->hoverBoxLinkButton = $this->slider_params['slider_hb_link'];
 		$this->hoverBoxZoomButton = false;
-		if (isset($this->slider_params['slider_hb_zoom']))
-		{
+		if (isset($this->slider_params['slider_hb_zoom'])) {
 			$this->hoverBoxZoomButton = $this->slider_params['slider_hb_zoom'];
 		}
 
 		// Hover effects
 		$this->hoverEffectClass = '';
-		if ($this->hoverBoxEffect == '4')
-		{
+		if ($this->hoverBoxEffect == '4') {
 			$this->hoverEffectClass = 'slideInRight';
 		}
-		if ($this->hoverBoxEffect == '5')
-		{
+		if ($this->hoverBoxEffect == '5') {
 			$this->hoverEffectClass = 'slideInLeft';
 		}
-		if ($this->hoverBoxEffect == '6')
-		{
+		if ($this->hoverBoxEffect == '6') {
 			$this->hoverEffectClass = 'slideInTop';
 		}
-		if ($this->hoverBoxEffect == '7')
-		{
+		if ($this->hoverBoxEffect == '7') {
 			$this->hoverEffectClass = 'slideInBottom';
 		}
-		if ($this->hoverBoxEffect == '8')
-		{
+		if ($this->hoverBoxEffect == '8') {
 			$this->hoverEffectClass = 'msliderzoomIn';
 		}
 
- 		// Transition styles
- 		$this->animated = '';
- 		if ($this->hoverBoxEffect != 'no' && $this->hoverBoxEffect != '2' && $this->hoverBoxEffect != '3')
- 		{
- 			$this->animated = '
- 			transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-webkit-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-o-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-ms-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
+		// Transition styles
+		$this->animated = '';
+		if ($this->hoverBoxEffect != 'no' && $this->hoverBoxEffect != '2' && $this->hoverBoxEffect != '3') {
+			$this->animated = '
+ 			transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-webkit-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-o-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-ms-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
  			';
- 		}
- 		$this->animated_flip = '';
- 		if ($this->hoverBoxEffect == '2' || $this->hoverBoxEffect == '3')
- 		{
- 			$this->animated_flip = '
- 			transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-webkit-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-o-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
- 			-ms-transition: all '.$this->hoverBoxEffectSpeed.'s '.$hoverBoxEffectEasing.' 0s;
+		}
+		$this->animated_flip = '';
+		if ($this->hoverBoxEffect == '2' || $this->hoverBoxEffect == '3') {
+			$this->animated_flip = '
+ 			transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-webkit-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-o-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
+ 			-ms-transition: all ' . $this->hoverBoxEffectSpeed . 's ' . $hoverBoxEffectEasing . ' 0s;
  			';
- 		}
+		}
 
- 		// Hover box background
- 		$this->hb_bg_class = $this->utilities->hex2RGB($this->hoverBoxBg, true);
- 		$this->hb_bg_opacity_class = number_format((float)$this->hoverBoxBgOpacity, 2, '.', '');
+		// Hover box background
+		$this->hb_bg_class = $this->utilities->hex2RGB($this->hoverBoxBg, true);
+		$this->hb_bg_opacity_class = number_format((float)$this->hoverBoxBgOpacity, 2, '.', '');
 
- 		// Hover box text color
- 		if ($this->hoverBoxTextColor == '1') {
- 			$this->hoverTextColor = 'dark-text';
- 		} else {
- 			$this->hoverTextColor = 'light-text';
- 		}
+		// Hover box text color
+		if ($this->hoverBoxTextColor == '1') {
+			$this->hoverTextColor = 'dark-text';
+		} else {
+			$this->hoverTextColor = 'light-text';
+		}
 
 		// Get Slider
-		if ($page === '1')
-		{
+		if ($page === '1') {
 			$this->slider = $this->model->getItems($this->widgetID);
-		}
-		else
-		{
+		} else {
 			$this->slider = $this->model->getItemsAjax($this->widgetID);
 		}
 
-		if (!$this->slider)
-		{
+		if (!$this->slider) {
 			return;
 		}
 
@@ -245,119 +230,97 @@ class HtmlView extends BaseHtmlView
 		$hoverBoxParams['hoverBoxDate'] = $this->hoverBoxDate;
 		$hoverBoxParams['hoverBoxDateFormat'] = $hoverBoxDateFormat;
 
- 		// Get widget with display options
- 		$this->slider = $this->model->getDisplayOptions($this->widgetID, $this->slider, $detailBoxParams, $hoverBoxParams);
+		// Get widget with display options
+		$this->slider = $this->model->getDisplayOptions($this->widgetID, $this->slider, $detailBoxParams, $hoverBoxParams);
 
 		// Display Slider
-		if (!$this->slider || $this->slider == '' || $this->slider == 0)
-		{
+		if (!$this->slider || $this->slider == '' || $this->slider == 0) {
 			$output = '<div class="mslider-results-empty-results">';
-			$output .= '<span>'.\JText::_('COM_MINITEKSLIDER_NO_ITEMS').'</span>';
+			$output .= '<span>' . \JText::_('COM_MINITEKSLIDER_NO_ITEMS') . '</span>';
 			$output .= '</div>';
 			echo $output;
-		}
-		else
-		{
+		} else {
 			// Check for errors.
-			if (count($errors = $this->get('Errors')))
-			{
+			if (count($errors = $this->get('Errors'))) {
 				throw new GenericDataException(implode("\n", $errors), 500);
 
- 				return false;
+				return false;
 			}
 
- 			if ($page === '1')
- 			{
+			if ($page === '1') {
 				// Set page meta data
- 				$this->setPageMeta($this->slider_params, $this->params);
+				$this->setPageMeta($this->slider_params, $this->params);
 
 				// Set layout
 				$layout = $this->slider_params['slider_layout'];
 
-				if ($layout)
-				{
+				if ($layout) {
 					$this->setLayout($layout);
 					$viewName = $jinput->get('view', 'slider', 'WORD');
 					$layoutTemplate = $this->getLayoutTemplate(); // This is empty if the override has the name 'default'. Does not work for modules.
-					$this->addTemplatePath(JPATH_SITE.'/templates/'.$layoutTemplate.'/html/com_minitekslider/'.$viewName);
+					$this->addTemplatePath(JPATH_SITE . '/templates/' . $layoutTemplate . '/html/com_minitekslider/' . $viewName);
 				}
- 			}
+			}
 
- 			parent::display($tpl);
- 		}
- 	}
+			parent::display($tpl);
+		}
+	}
 
- 	public function setPageMeta($slider_params, $params)
- 	{
- 		$document = \JFactory::getDocument();
- 		$app = \JFactory::getApplication();
- 		$menus = $app->getMenu();
- 		$menu = $menus->getActive();
+	public function setPageMeta($slider_params, $params)
+	{
+		$document = \JFactory::getDocument();
+		$app = \JFactory::getApplication();
+		$menus = $app->getMenu();
+		$menu = $menus->getActive();
 
- 		$this->slider_page_title = false;
+		$this->slider_page_title = false;
 
- 		if (array_key_exists('slider_page_title', $slider_params) && $slider_params['slider_page_title'])
- 		{
- 			$this->slider_page_title = true;
+		if (array_key_exists('slider_page_title', $slider_params) && $slider_params['slider_page_title']) {
+			$this->slider_page_title = true;
 
- 			if ($menu)
- 			{
- 				$params->def('page_heading', $params->get('page_title', $menu->title));
- 			}
+			if ($menu) {
+				$params->def('page_heading', $params->get('page_title', $menu->title));
+			}
 
- 			$title = $params->get('page_title', '');
+			$title = $params->get('page_title', '');
 
- 			// Check for empty title and add site name if param is set
- 			if (empty($title))
- 			{
- 				$title = $app->get('sitename');
- 			}
- 			elseif ($app->get('sitename_pagetitles', 0) == 1)
- 			{
- 				$title = JText::sprintf('JPAGETITLE', $app->get('sitename'), $title);
- 			}
- 			elseif ($app->get('sitename_pagetitles', 0) == 2)
- 			{
- 				$title = JText::sprintf('JPAGETITLE', $title, $app->get('sitename'));
- 			}
+			// Check for empty title and add site name if param is set
+			if (empty($title)) {
+				$title = $app->get('sitename');
+			} elseif ($app->get('sitename_pagetitles', 0) == 1) {
+				$title = \JText::sprintf('JPAGETITLE', $app->get('sitename'), $title);
+			} elseif ($app->get('sitename_pagetitles', 0) == 2) {
+				$title = \JText::sprintf('JPAGETITLE', $title, $app->get('sitename'));
+			}
 
- 			$document->setTitle($title);
+			$document->setTitle($title);
 
- 			if ($params->get('menu-meta_description'))
- 			{
- 				$document->setDescription($params->get('menu-meta_description'));
- 			}
+			if ($params->get('menu-meta_description')) {
+				$document->setDescription($params->get('menu-meta_description'));
+			}
 
- 			if ($params->get('menu-meta_keywords'))
- 			{
- 				$document->setMetadata('keywords', $params->get('menu-meta_keywords'));
- 			}
+			if ($params->get('menu-meta_keywords')) {
+				$document->setMetadata('keywords', $params->get('menu-meta_keywords'));
+			}
 
- 			if ($params->get('robots'))
- 			{
- 				$document->setMetadata('robots', $params->get('robots'));
- 			}
- 		}
+			if ($params->get('robots')) {
+				$document->setMetadata('robots', $params->get('robots'));
+			}
+		}
 
- 		if (isset($menu->query['option']) && $menu->query['option'] == 'com_minitekslider')
- 		{
- 			$title = $params->get('page_title', '');
+		if (isset($menu->query['option']) && $menu->query['option'] == 'com_minitekslider') {
+			$title = $params->get('page_title', '');
 
- 			// Check for empty title and add site name if param is set
- 			if (empty($title))
- 			{
- 				$title = $app->get('sitename');
- 			}
- 			elseif ($app->get('sitename_pagetitles', 0) == 1)
- 			{
- 				$title = JText::sprintf('JPAGETITLE', $app->get('sitename'), $title);
- 			}
- 			elseif ($app->get('sitename_pagetitles', 0) == 2)
- 			{
- 				$title = JText::sprintf('JPAGETITLE', $title, $app->get('sitename'));
- 			}
+			// Check for empty title and add site name if param is set
+			if (empty($title)) {
+				$title = $app->get('sitename');
+			} elseif ($app->get('sitename_pagetitles', 0) == 1) {
+				$title = \JText::sprintf('JPAGETITLE', $app->get('sitename'), $title);
+			} elseif ($app->get('sitename_pagetitles', 0) == 2) {
+				$title = \JText::sprintf('JPAGETITLE', $title, $app->get('sitename'));
+			}
 
- 			$document->setTitle($title);
- 		}
- 	}
+			$document->setTitle($title);
+		}
+	}
 }

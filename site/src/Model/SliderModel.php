@@ -1,11 +1,12 @@
 <?php
+
 /**
-* @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
-* @license		GNU General Public License version 3 or later.
-* @author url	https://www.minitek.gr/
-* @developers	Minitek.gr
-*/
+ * @title		Minitek Slider
+ * @copyright	Copyright (C) 2011-2020 Minitek, All rights reserved.
+ * @license		GNU General Public License version 3 or later.
+ * @author url	https://www.minitek.gr/
+ * @developers	Minitek.gr
+ */
 
 namespace Joomla\Component\MinitekSlider\Site\Model;
 
@@ -25,7 +26,6 @@ class SliderModel extends BaseDatabaseModel
 	var $utilities = null;
 	var $source = null;
 	var $slider_css = null;
-	var $slider_javascript = null;
 
 	function __construct()
 	{
@@ -34,7 +34,6 @@ class SliderModel extends BaseDatabaseModel
 		$this->utilities = $this->getUtilitiesLib();
 		$this->source = $this->getSourceLib();
 		$this->slider_css = $this->getCssLib();
-		$this->slider_javascript = $this->getJavascriptLib();
 
 		parent::__construct();
 	}
@@ -60,13 +59,6 @@ class SliderModel extends BaseDatabaseModel
 		return $options;
 	}
 
-	public function getJavascriptLib()
-	{
-		$options = new \MinitekSliderLibJavascript;
-
-		return $options;
-	}
-
 	public function getItemsCount($widgetID)
 	{
 		// Get source params
@@ -80,8 +72,7 @@ class SliderModel extends BaseDatabaseModel
 		// Count items
 		$result = $this->source->getItems(true, $source_params, $globalLimit, false, false);
 
-		if (isset($result))
-		{
+		if (isset($result)) {
 			return $result;
 		}
 
@@ -101,8 +92,7 @@ class SliderModel extends BaseDatabaseModel
 		// Get items
 		$result = $this->source->getItems(false, $source_params, $startLimit, false, false);
 
-		if (isset($result))
-		{
+		if (isset($result)) {
 			return $result;
 		}
 
@@ -115,8 +105,8 @@ class SliderModel extends BaseDatabaseModel
 		$source_type = $this->utilities->getSourceID($widgetID);
 
 		// Register plugin source class
-		$class = 'MSource'.$source_type.'Options';
-		$plugin = 'msource'.$source_type;
+		$class = 'MSource' . $source_type . 'Options';
+		$plugin = 'msource' . $source_type;
 		\JLoader::register($class, JPATH_SITE . '/plugins/content/' . $plugin . '/helpers/options.php');
 
 		$options = new $class;
