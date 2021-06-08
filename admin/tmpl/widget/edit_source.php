@@ -13,28 +13,13 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\MinitekSlider\Administrator\Helper\MinitekSliderHelper;
-
-Factory::getDocument()->addScriptDeclaration("
-(function( $ ) {
-	'use strict';
-
-	$(function() {
-		$('.btn-source').click(function () {
-			var data_source = $(this).attr('data-source');
-			$('input[name=\"source_type\"]').val(data_source);
-			Joomla.submitbutton('widget.selectSource');
-		});
-	});
-
-})( jQuery );
-");
 ?>
 
 <div class="card">
 	<div class="card-header">
-		<div class="d-flex justify-content-between">
-			<h3 class="mb-0" style="line-height: 1.4;"><?php echo Text::_('COM_MINITEKSLIDER_WIDGET_SELECT_DATA_SOURCE'); ?></h3>
-			<a href="https://www.minitek.gr/joomla/source-plugins" class="btn btn-info btn-sm" target="_blank">
+		<div class="w-100">
+			<h3 class="mb-0 float-start"><?php echo Text::_('COM_MINITEKSLIDER_WIDGET_SELECT_DATA_SOURCE'); ?></h3>
+			<a href="https://www.minitek.gr/joomla/source-plugins" class="btn btn-info btn-sm float-end" target="_blank">
 				<span class="fas fa-search" aria-hidden="true"></span>&nbsp;
 				<?php echo Text::_('COM_MINITEKSLIDER_WIDGET_BROWSE_SOURCE_PLUGINS'); ?>
 			</a>
@@ -43,7 +28,7 @@ Factory::getDocument()->addScriptDeclaration("
 	<div class="card-body">
 		<form action="<?php echo Route::_('index.php?option=com_minitekslider&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="widget-form" class="form-validate">
 			<?php // Core plugins ?> 
-			<h4 class="header m-3"><?php echo Text::_('COM_MINITEKSLIDER_WIDGET_CORE_PLUGINS'); ?></h4>
+			<h4 class="header m-3 p-3"><?php echo Text::_('COM_MINITEKSLIDER_WIDGET_CORE_PLUGINS'); ?></h4>
 			<div class="row">
 				<?php 
 				$otherPlugins = false;
@@ -162,3 +147,25 @@ Factory::getDocument()->addScriptDeclaration("
 		</form>
 	</div>
 </div>
+
+<script>
+	(function(document) {
+		'use strict';
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var btn_sources = document.querySelectorAll('.btn-source');
+
+			if (btn_sources) {
+				btn_sources.forEach(function(a) {
+					a.addEventListener('click', function(e) {
+						e.preventDefault();
+
+						var data_source = a.getAttribute('data-source');
+						document.querySelector('input[name=\"source_type\"]').value = data_source;
+						Joomla.submitbutton('widget.selectSource');
+					});
+				});
+			}
+		});
+	})(document);
+</script><?php

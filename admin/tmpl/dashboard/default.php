@@ -1,11 +1,12 @@
 <?php
+
 /**
-* @title		Minitek Slider
-* @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
-* @license		GNU General Public License version 3 or later.
-* @author url	https://www.minitek.gr/
-* @developers	Minitek.gr
-*/
+ * @title		Minitek Slider
+ * @copyright	Copyright (C) 2011-2021 Minitek, All rights reserved.
+ * @license		GNU General Public License version 3 or later.
+ * @author url	https://www.minitek.gr/
+ * @developers	Minitek.gr
+ */
 
 defined('_JEXEC') or die;
 
@@ -41,12 +42,12 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 		<div class="col-sm-12 col-md-8">
 			<div class="media mt-0">
 				<div class="float-start">
-					<img class="media-object" src="<?php echo URI::root(true).'/media/com_minitekslider/images/logo.png'; ?>">
+					<img class="media-object" src="<?php echo URI::root(true) . '/media/com_minitekslider/images/logo.png'; ?>">
 				</div>
 				<div class="media-body">
-			    <h2 class="media-heading"><?php echo Text::_('COM_MINITEKSLIDER'); ?> <span class="badge bg-success">Free</span></h2>
-			    <?php echo Text::_('COM_MINITEKSLIDER_DESC'); ?>
-			  </div>
+					<h2 class="media-heading"><?php echo Text::_('COM_MINITEKSLIDER'); ?> <span class="badge bg-success">Free</span></h2>
+					<?php echo Text::_('COM_MINITEKSLIDER_DESC'); ?>
+				</div>
 			</div>
 
 			<div class="dashboard-thumbnails">
@@ -89,7 +90,7 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 				</div>
 
 				<div class="thumbnail card">
-					<a href="<?php echo Route::_('index.php?option=com_config&view=component&component=com_minitekslider&path=&return='.base64_encode(URI::getInstance()->toString())); ?>">
+					<a href="<?php echo Route::_('index.php?option=com_config&view=component&component=com_minitekslider&path=&return=' . base64_encode(URI::getInstance()->toString())); ?>">
 						<i class="icon icon-cog"></i>
 						<span class="thumbnail-title">
 							<?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_CONFIGURATION'); ?>
@@ -98,7 +99,7 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 				</div>
 
 				<div class="thumbnail card">
-					<a href="<?php echo Route::_('index.php?option=com_minitekslider&task=widgets.deleteCroppedImages&'.Session::getFormToken().'=1'); ?>">
+					<a href="<?php echo Route::_('index.php?option=com_minitekslider&task=widgets.deleteCroppedImages&' . Session::getFormToken() . '=1'); ?>">
 						<i class="icon icon-trash" style="color: #ea7a7a;"></i>
 						<span class="thumbnail-title">
 							<?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_DELETE_CROPPED_IMAGES'); ?>
@@ -163,38 +164,38 @@ $moduleInstalled = MinitekSliderHelper::getModule();
 					<div class="card-body p-0">
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item">
-								<span class="icon-book" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-book icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/documentation/joomla/minitek-slider-j4" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_DOCUMENTATION'); ?></a>
 								</span>
 							</li>
 							<li class="list-group-item">
-								<span class="icon-list" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-list icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/changelogs/joomla/minitek-slider" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_CHANGELOG'); ?></a>
 								</span>
 							</li>
 							<li class="list-group-item">
-								<span class="icon-support" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-support icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/forum/joomla/minitek-slider" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_TECHNICAL_SUPPORT'); ?></a>
 									<span class="badge bg-danger">Pro</span>
 								</span>
 							</li>
 							<li class="list-group-item">
-								<span class="icon-help" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-help icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/documentation/joomla/minitek-slider-j4/faq" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_FAQ'); ?></a>
 								</span>
 							</li>
 							<li class="list-group-item">
-								<span class="icon-question" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-question icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/support/documentation/joomla/minitek-slider-j4/free-vs-pro" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_SIDEBAR_FREE_VS_PRO'); ?></a>
 								</span>
 							</li>
 							<li class="list-group-item">
-								<span class="icon-lock" aria-hidden="true"></span>&nbsp;
+								<span class="me-2 icon-lock icon-fw" aria-hidden="true"></span>&nbsp;
 								<span>
 									<a href="https://www.minitek.gr/joomla/extensions/minitek-slider#subscriptionPlans" target="_blank"><?php echo Text::_('COM_MINITEKSLIDER_DASHBOARD_UPGRADE_TO_PRO'); ?></a>
 								</span>
