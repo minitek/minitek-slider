@@ -6,6 +6,10 @@
   content: none;
 }
 
+.com_minitekslider.view-widget .alert {
+  margin: 0;
+}
+
 /* Dashboard */
 
 body.com_minitekslider.view- #subhead,
